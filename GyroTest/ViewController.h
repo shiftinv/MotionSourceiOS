@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import "GCDAsyncUdpSocket.h"
+
+@interface ViewController : UIViewController <GCDAsyncUdpSocketDelegate>
+
 
 
 @end
