@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <zlib.h>
 
 #import "PacketHandler.h"
 #import "hexd.h"
@@ -54,7 +55,8 @@
 }
 
 + (void)finishPacket:(NSMutableData *)packet {
-    
+    unsigned long crc = crc32(0, [packet bytes], (uInt)packet.length);
+    [packet replaceBytesInRange:NSMakeRange(8, 4) withBytes:&crc];
 }
 
 @end

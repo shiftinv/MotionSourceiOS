@@ -17,6 +17,7 @@
 		F4E83CDB1FA4F92000B0BB14 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44B114F1FA4F8F3001C8D6E /* CocoaAsyncSocket.framework */; };
 		F4E83CDC1FA4F92000B0BB14 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F44B114F1FA4F8F3001C8D6E /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F4E83CDF1FA519B400B0BB14 /* PacketHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E83CDE1FA519B400B0BB14 /* PacketHandler.m */; };
+		F4E83CE31FA5298400B0BB14 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E83CE21FA5298400B0BB14 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,7 @@
 		F4E83CDE1FA519B400B0BB14 /* PacketHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PacketHandler.m; sourceTree = "<group>"; };
 		F4E83CE01FA519C200B0BB14 /* PacketHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PacketHandler.h; sourceTree = "<group>"; };
 		F4E83CE11FA51CA300B0BB14 /* hexd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hexd.h; sourceTree = "<group>"; };
+		F4E83CE21FA5298400B0BB14 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4E83CE31FA5298400B0BB14 /* libz.tbd in Frameworks */,
 				F4E83CDB1FA4F92000B0BB14 /* CocoaAsyncSocket.framework in Frameworks */,
 				288E90E00D0EAD91466A1D10 /* Pods_GyroTest.framework in Frameworks */,
 			);
@@ -70,6 +73,7 @@
 		820F2EB7E2F262AB5B43D0C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F4E83CE21FA5298400B0BB14 /* libz.tbd */,
 				F44B114F1FA4F8F3001C8D6E /* CocoaAsyncSocket.framework */,
 				F44B11481FA4F7B4001C8D6E /* CocoaAsyncSocket.framework */,
 				AF01F17CF91D2F4B9167E01A /* Pods_GyroTest.framework */,
