@@ -9,19 +9,51 @@
 #import <Foundation/Foundation.h>
 
 #import "PacketHandler.h"
+#import "hexd.h"
+
+#define SERVERID 53473400
 
 
 @implementation PacketHandler
 
 + (void)sendPacket:(NSData *)data toAddress:(NSData *)address {
+    hexd(data);
+    NSUInteger capacity = 16 + data.length;
+    NSMutableData *packet = [NSMutableData dataWithCapacity:capacity];
     
+    printf("\n");
+    hexd(packet);
+    [self beginPacket:packet withDataLength:capacity];
+    hexd(packet);
+    [packet appendData:data];
+    hexd(packet);
+    [self finishPacket:packet];
+    hexd(packet);
 }
 
-+ (int)beginPacket:(NSMutableData *)data {
-    return 0;
++ (void)beginPacket:(NSMutableData *)packet withDataLength:(NSUInteger)length {
+    unsigned char packetBuf[16];
+    int currIndex = 0;
+    
+    memcpy(packetBuf, "DSUS", 4);
+    currIndex += 4;
+    
+    *(uint16_t *)(packetBuf + currIndex) = (uint16_t)1001;
+    currIndex += 2;
+    
+    *(uint16_t *)(packetBuf + currIndex) = (uint16_t)(length - 16);
+    currIndex += 2;
+    
+    memset(packetBuf + currIndex, 0, 4);
+    currIndex += 4;
+    
+    *(uint32_t *)(packetBuf + currIndex) = (uint32_t)SERVERID;
+    currIndex += 4;
+    
+    [packet appendBytes:packetBuf length:sizeof(packetBuf)];
 }
 
-+ (void)finishPacket:(NSMutableData *)data {
++ (void)finishPacket:(NSMutableData *)packet {
     
 }
 

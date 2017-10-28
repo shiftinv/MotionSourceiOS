@@ -10,6 +10,7 @@
 
 #import "ViewController.h"
 #import "PacketHandler.h"
+#import "hexd.h"
 
 
 enum MessageType
@@ -21,8 +22,6 @@ enum MessageType
     MessageType_DSUC_PadDataReq = 0x100002,
     MessageType_DSUS_PadDataRsp = 0x100002,
 };
-
-void hexd(NSData* data);
 
 
 @interface ViewController () {
@@ -55,11 +54,11 @@ void hexd(NSData* data);
 
 
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext {
-    NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    //NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     hexd(data);
-    const char *bufPtr = [data bytes];
+    const unsigned char *bufPtr = [data bytes];
     
-    if(strncmp(bufPtr, "DSUC", 4) != 0)
+    if(strncmp((const char *)bufPtr, "DSUC", 4) != 0)
         return;
     bufPtr += 4;
     
@@ -90,7 +89,7 @@ void hexd(NSData* data);
         *(uint16_t *)(outPtr) = (uint16_t)0;
         outPtr += 2;
         
-        [PacketHandler sendPacket:[NSData dataWithBytesNoCopy:outputData length:sizeof(outputData) freeWhenDone:false] toAddress:address];
+        [PacketHandler sendPacket:[NSData dataWithBytes:outputData length:sizeof(outputData)] toAddress:address];
     } else if(messageType == MessageType_DSUC_ListPorts) {
         NSLog(@"messageType: DSUC_ListPorts");
         
@@ -123,7 +122,7 @@ void hexd(NSData* data);
         *outPtr = 0;
         outPtr++;
         
-        [PacketHandler sendPacket:[NSData dataWithBytesNoCopy:outputData length:sizeof(outputData) freeWhenDone:false] toAddress:address];
+        [PacketHandler sendPacket:[NSData dataWithBytes:outputData length:sizeof(outputData)] toAddress:address];
         
         /**(uint32_t *)(outputData)    = 0x00100001;
          *(uint32_t *)(outputData+4)  = 0x00000001;
@@ -154,21 +153,3 @@ void hexd(NSData* data);
 
 
 @end
-
-void hexd(NSData* data) {
-    uint64_t len = [data length];
-    const char *buf = [data bytes];
-    for (int i=0; i<len; i+=16) {
-        printf("%06x: ", i);
-        for (int j=0; j<16; j++)
-            if (i+j < len)
-                printf("%02x ", buf[i+j]);
-            else
-                printf("   ");
-        printf(" ");
-        for (int j=0; j<16; j++)
-            if (i+j < len)
-                printf("%c", isprint(buf[i+j]) ? buf[i+j] : '.');
-        printf("\n");
-    }
-}

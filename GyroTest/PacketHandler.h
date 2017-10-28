@@ -9,7 +9,7 @@
 @interface PacketHandler : NSObject
 
 + (void)sendPacket:(NSData *)data toAddress:(NSData *)address;
-+ (int)beginPacket:(NSMutableData *)data;
-+ (void)finishPacket:(NSMutableData *)data;
++ (void)beginPacket:(NSMutableData *)packet withDataLength:(NSUInteger)length;
++ (void)finishPacket:(NSMutableData *)packet;
 
 @end
