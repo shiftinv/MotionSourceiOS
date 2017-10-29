@@ -17,12 +17,11 @@
 
 @implementation PacketHandler
 
-+ (void)sendPacket:(NSData *)data toAddress:(NSData *)address {
++ (void)sendPacket:(NSData *)data toAddress:(NSData *)address fromSocket:(GCDAsyncUdpSocket *)socket {
     hexd(data);
     NSUInteger capacity = 16 + data.length;
     NSMutableData *packet = [NSMutableData dataWithCapacity:capacity];
     
-    printf("\n");
     hexd(packet);
     [self beginPacket:packet withDataLength:capacity];
     hexd(packet);
@@ -30,6 +29,8 @@
     hexd(packet);
     [self finishPacket:packet];
     hexd(packet);
+    
+    [socket sendData:packet toAddress:address withTimeout:-1 tag:0];
 }
 
 + (void)beginPacket:(NSMutableData *)packet withDataLength:(NSUInteger)length {

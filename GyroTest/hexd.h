@@ -9,7 +9,7 @@
 #ifndef _hexd_h
 #define _hexd_h
 
-static void hexd(NSData* data) {
+static void hexd(NSData* data) {return;
     uint64_t len = [data length];
     const unsigned char *buf = [data bytes];
     for (int i=0; i<len; i+=16) {

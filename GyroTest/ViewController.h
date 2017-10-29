@@ -12,7 +12,8 @@
 
 @interface ViewController : UIViewController <GCDAsyncUdpSocketDelegate>
 
-
+- (float)calculateRotationDelta:(double)radiansPerSec with:(NSTimeInterval)timeDelta;
+- (void)handleGyroUpdate:(CMGyroData * _Nullable)data withError:(NSError * _Nullable)error;
 
 @end
 
