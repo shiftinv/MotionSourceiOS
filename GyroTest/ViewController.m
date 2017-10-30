@@ -13,7 +13,8 @@
 #import "PacketHandler.h"
 #import "hexd.h"
 
-static double x = 0, y = 0, z = 0;
+#define radtodeg(x) (x * 180.0 / M_PI)
+
 typedef NS_ENUM(NSUInteger, MessageType)
 {
     MessageTypeDSUCVersionReq = 0x100000,
@@ -29,8 +30,9 @@ typedef NS_ENUM(NSUInteger, MessageType)
     GCDAsyncUdpSocket *socket;
     CMMotionManager *motionManager;
     NSUInteger packetCounter;
-    CFTimeInterval lastUpdate;
     NSData *lastAddress;
+    CMDeviceMotion *lastMotionData;
+    float gyroFactor;
 }
 
 @end
@@ -41,7 +43,6 @@ typedef NS_ENUM(NSUInteger, MessageType)
     [super viewDidLoad];
     
     packetCounter = 0;
-    lastUpdate = CACurrentMediaTime();
     socket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     
     NSError *error = nil;
@@ -59,20 +60,17 @@ typedef NS_ENUM(NSUInteger, MessageType)
     NSLog(@"UDP server started on address %@, port %hu", [socket localHost], [socket localPort]);
     
     
+    gyroFactor = 8.0;
+    
     motionManager = [[CMMotionManager alloc] init];
-    [motionManager setGyroUpdateInterval:0.2];
+    [motionManager setDeviceMotionUpdateInterval:0.1];
     __weak id weakSelf = self;
-    [motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMGyroData * _Nullable gyroData, NSError * _Nullable error) {
-        [weakSelf handleGyroUpdate:gyroData withError:error];
+    [motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
+        [weakSelf handleMotionUpdate:motion withError:error];
     }];
 }
 
-- (float)calculateRotationDelta:(double)radiansPerSec with:(NSTimeInterval)timeDelta {
-    double degreesPerSec = radiansPerSec * (180 / M_PI);
-    return degreesPerSec * timeDelta;
-}
-
-- (void)handleGyroUpdate:(CMGyroData *)data withError:(NSError *)error {
+- (void)handleMotionUpdate:(CMDeviceMotion * _Nullable)motionData withError:(NSError * _Nullable)error {
     if(lastAddress == nil || error != nil)
         return;
     
@@ -128,29 +126,36 @@ typedef NS_ENUM(NSUInteger, MessageType)
     memset(outPtr, 0, 12); // touchpad
     outPtr += 12;
     
-    NSTimeInterval currentTime = CACurrentMediaTime();
-    NSTimeInterval timeDelta = (currentTime - lastUpdate);
-    NSUInteger timeDeltaUS = timeDelta * pow(10, 6);
-    lastUpdate = currentTime;
-    printf("\n%lu\n", timeDeltaUS);
-    *(uint64_t *)(outPtr) = timeDeltaUS;
+    NSUInteger timestampUS = motionData.timestamp * pow(10, 6);
+    *(uint64_t *)(outPtr) = timestampUS;
     outPtr += 8;
     
     memset(outPtr, 0, 12); // accelerometer
     outPtr += 12;
     
-    //memset(outPtr, 0, 8);  // gyro yaw/roll
-    //outPtr += 8;
+    float xDelta, yDelta, zDelta;
+    if(lastMotionData) {
+        xDelta = motionData.attitude.pitch - lastMotionData.attitude.pitch;
+        yDelta = motionData.attitude.roll - lastMotionData.attitude.roll;
+        zDelta = motionData.attitude.yaw - lastMotionData.attitude.yaw;
+    } else {
+        xDelta = motionData.attitude.pitch;
+        yDelta = motionData.attitude.roll;
+        zDelta = motionData.attitude.yaw;
+    }
+    xDelta = radtodeg(xDelta) * gyroFactor;
+    yDelta = -radtodeg(yDelta) * gyroFactor;
+    zDelta = -radtodeg(zDelta) * gyroFactor;
     
-    float xDelta = [self calculateRotationDelta:data.rotationRate.x with:timeDelta]; x += xDelta;
-    *(uint32_t *)(outPtr) = *(uint32_t *)&xDelta;
-    outPtr += 4;
-    float yDelta = [self calculateRotationDelta:data.rotationRate.y with:timeDelta]; y += yDelta;
     *(uint32_t *)(outPtr) = *(uint32_t *)&yDelta;
     outPtr += 4;
-    float zDelta = [self calculateRotationDelta:data.rotationRate.z with:timeDelta]; z += zDelta; printf("x: %.4f, y: %.4f, z: %.4f\n", x, y, z);
     *(uint32_t *)(outPtr) = *(uint32_t *)&zDelta;
     outPtr += 4;
+    *(uint32_t *)(outPtr) = *(uint32_t *)&xDelta;
+    outPtr += 4;
+    
+    
+    lastMotionData = motionData;
     
     [PacketHandler sendPacket:[NSData dataWithBytes:outputData length:sizeof(outputData)] toAddress:lastAddress fromSocket:socket];
 }
@@ -178,12 +183,12 @@ typedef NS_ENUM(NSUInteger, MessageType)
     
     uint32_t clientID = *(uint32_t *)(bufPtr);
     bufPtr += 4;
-    NSLog(@"%hd", protocolVer);
+    
     MessageType messageType = *(uint32_t *)(bufPtr);
     bufPtr += 4;
     
     if(messageType == MessageTypeDSUCVersionReq) {
-        NSLog(@"messageType: DSUC_VersionReq");
+        //NSLog(@"messageType: DSUC_VersionReq");
         
         uint8_t outputData[8];
         uint8_t *outPtr = outputData;
@@ -196,7 +201,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
         
         [PacketHandler sendPacket:[NSData dataWithBytes:outputData length:sizeof(outputData)] toAddress:address fromSocket:socket];
     } else if(messageType == MessageTypeDSUCListPorts) {
-        NSLog(@"messageType: DSUC_ListPorts");
+        //NSLog(@"messageType: DSUC_ListPorts");
         
         int numPadRequests = *(uint32_t *)(bufPtr);
         bufPtr += 4;
@@ -245,7 +250,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
          *(uint32_t *)(outputData+12) = 0x00000000;
          sendPacket(udp.remoteIP(), udp.remotePort(), outputData, sizeof(outputData));*/
     } else if(messageType == MessageTypeDSUCPadDataReq) {
-        NSLog(@"messageType: DSUC_PadDataReq");
+        //NSLog(@"messageType: DSUC_PadDataReq");
         
         uint8_t regFlags = *bufPtr;
         bufPtr++;
@@ -256,7 +261,6 @@ typedef NS_ENUM(NSUInteger, MessageType)
         if(gyroData != nil)
             [self handleGyroUpdate:gyroData withError:nil];*/
     }
-    NSLog(@"done.");
 }
 
 
