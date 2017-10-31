@@ -27,6 +27,8 @@ typedef NS_ENUM(NSUInteger, MessageType)
 
 
 @interface ViewController () {
+    bool serverStarted;
+    uint16_t port;
     GCDAsyncUdpSocket *socket;
     CMMotionManager *motionManager;
     NSUInteger packetCounter;
@@ -42,23 +44,14 @@ typedef NS_ENUM(NSUInteger, MessageType)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // ** Networking **
+    
+    serverStarted = false;
+    port = 26760;
     packetCounter = 0;
-    socket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     
-    NSError *error = nil;
     
-    if(![socket bindToPort:26760 error:&error]) {
-        NSLog(@"Error starting server (bind): %@", error);
-        return;
-    }
-    if(![socket beginReceiving:&error]) {
-        [socket close];
-        NSLog(@"Error starting server (beginRecv): %@", error);
-        return;
-    }
-    
-    NSLog(@"UDP server started on address %@, port %hu", [socket localHost], [socket localPort]);
-    
+    // ** Gyroscope **
     
     gyroFactor = 8.0;
     
@@ -66,11 +59,128 @@ typedef NS_ENUM(NSUInteger, MessageType)
     [motionManager setDeviceMotionUpdateInterval:0.1];
     __weak id weakSelf = self;
     [motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
+        //printf("%s", [[[motion attitude] debugDescription] UTF8String]);
         [weakSelf handleMotionUpdate:motion withError:error];
     }];
+    
+    
+    // ** UI **
+    [_updateIntervalTextField setText:[NSString stringWithFormat:@"%d", (int)_updateIntervalSlider.value]];
+    [_portTextField setText:[NSString stringWithFormat:@"%d", port]];
+    [_portTextField setDelegate:self];
+    [_startstopServerButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [_startstopServerButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
 }
 
-- (void)handleMotionUpdate:(CMDeviceMotion * _Nullable)motionData withError:(NSError * _Nullable)error {
+- (void)startServer {
+    if(serverStarted) {
+        NSLog(@"Cannot start server because a server is already running. This should not happen.");
+        return;
+    }
+    
+    socket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+    
+    NSError *error = nil;
+    
+    if(![socket bindToPort:port error:&error]) {
+        NSString *errorString = [NSString stringWithFormat:@"Error starting server (bind): %@", error];
+        NSLog(@"%@", errorString);
+        [self displayErrorWithMessage:errorString];
+        
+        return;
+    }
+    if(![socket beginReceiving:&error]) {
+        [socket close];
+        
+        NSString *errorString = [NSString stringWithFormat:@"Error starting server (beginRecv): %@", error];
+        NSLog(@"%@", errorString);
+        [self displayErrorWithMessage:errorString];
+        
+        return;
+    }
+    
+    [_startstopServerButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [_startstopServerButton setTitle:@"Stop Server" forState:UIControlStateNormal];
+    NSLog(@"UDP server started on address %@, port %hu", [socket localHost], [socket localPort]);
+    serverStarted = true;
+}
+
+- (void)stopServer {
+    if(!serverStarted) {
+        NSLog(@"Cannot stop server because it's not started. This should not happen.");
+        return;
+    }
+    
+    NSLog(@"Stopping server..");
+    [socket close];
+    [_startstopServerButton setEnabled:false];
+    // button waits for delegate method udpSocketDidClose:withError: to be called
+}
+
+- (IBAction)startstopServer {
+    if(serverStarted) {
+        [self stopServer];
+    } else {
+        [self startServer];
+    }
+}
+
+- (IBAction)setPortPressed:(id)sender {
+    if([_portTextField hasText]
+       && [[_portTextField text] intValue] >= 1024
+       && [[_portTextField text] intValue] <= 65535) {
+        int intValue = [[_portTextField text] intValue];
+        port = intValue;
+        
+        [_startstopServerButton setEnabled:true];
+        [self.view endEditing:true];
+        [self stopServer];
+    } else {
+        NSString *errorMessage = [NSString stringWithFormat:@"The port must be in the range %d-%d", 1024, 65535];
+        [self displayErrorWithMessage:errorMessage];
+    }
+}
+
+- (IBAction)updateIntervalChanged:(id)sender {
+    NSString *valueText = [NSString stringWithFormat:@"%d", (int)_updateIntervalSlider.value];
+    [_updateIntervalTextField setText:valueText];
+}
+
+- (IBAction)setIntervalPressed:(id)sender {
+    if([_updateIntervalTextField hasText]
+       && [[_updateIntervalTextField text] intValue] >= _updateIntervalSlider.minimumValue
+       && [[_updateIntervalTextField text] intValue] <= _updateIntervalSlider.maximumValue) {
+        int intValue = [[_updateIntervalTextField text] intValue];
+        [_updateIntervalSlider setValue:intValue];
+        [self.view endEditing:true];
+    } else {
+        NSString *errorMessage = [NSString stringWithFormat:@"The update interval must be in the range %d-%d", (int)_updateIntervalSlider.minimumValue, (int)_updateIntervalSlider.maximumValue];
+        [self displayErrorWithMessage:errorMessage];
+    }
+}
+
+- (void)displayErrorWithMessage:(NSString *)message {
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Error" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [controller addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:controller animated:true completion:nil];
+}
+
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [_startstopServerButton setEnabled:false];
+}
+
+
+- (void)udpSocketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError *)error {
+    [_startstopServerButton setEnabled:true];
+    [_startstopServerButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [_startstopServerButton setTitle:@"Start Server" forState:UIControlStateNormal];
+    NSLog(@"Stopped UDP server");
+    socket = nil;
+    serverStarted = false;
+}
+
+- (void)handleMotionUpdate:(CMDeviceMotion *)motionData withError:(NSError *)error {
     if(lastAddress == nil || error != nil)
         return;
     

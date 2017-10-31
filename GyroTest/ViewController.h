@@ -10,9 +10,21 @@
 
 #import "GCDAsyncUdpSocket.h"
 
-@interface ViewController : UIViewController <GCDAsyncUdpSocketDelegate>
+@interface ViewController : UIViewController <GCDAsyncUdpSocketDelegate, UITextFieldDelegate>
 
-- (void)handleMotionUpdate:(CMDeviceMotion * _Nullable)motionData withError:(NSError * _Nullable)error;
+@property (weak, nonatomic) IBOutlet UITextField *portTextField;
+@property (weak, nonatomic) IBOutlet UIButton *startstopServerButton;
+@property (weak, nonatomic) IBOutlet UISlider *updateIntervalSlider;
+@property (weak, nonatomic) IBOutlet UITextField *updateIntervalTextField;
+
+- (void)startServer;
+- (void)stopServer;
+- (IBAction)startstopServer;
+- (IBAction)setPortPressed:(id)sender;
+- (IBAction)updateIntervalChanged:(id)sender;
+- (IBAction)setIntervalPressed:(id)sender;
+- (void)displayErrorWithMessage:(NSString *)message;
+- (void)handleMotionUpdate:(CMDeviceMotion *)motionData withError:(NSError *)error;
 
 @end
 
