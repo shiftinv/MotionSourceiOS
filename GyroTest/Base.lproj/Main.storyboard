@@ -63,7 +63,7 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="5Qk-2k-GnI">
                                 <rect key="frame" x="18" y="147" width="249" height="31"/>
                                 <connections>
-                                    <action selector="updateIntervalChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="fjq-7l-uy2"/>
+                                    <action selector="intervalSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="k4O-va-WIq"/>
                                 </connections>
                             </slider>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IlJ-Bk-iF1">

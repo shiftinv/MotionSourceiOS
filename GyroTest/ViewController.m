@@ -27,14 +27,18 @@ typedef NS_ENUM(NSUInteger, MessageType)
 
 
 @interface ViewController () {
+    // ** Networking **
     bool serverStarted;
     uint16_t port;
-    GCDAsyncUdpSocket *socket;
-    CMMotionManager *motionManager;
     NSUInteger packetCounter;
     NSData *lastAddress;
+    GCDAsyncUdpSocket *socket;
+    
+    // ** Gyroscope **
+    CMMotionManager *motionManager;
     CMDeviceMotion *lastMotionData;
     float gyroFactor;
+    int updatesPerSec;
 }
 
 @end
@@ -56,7 +60,8 @@ typedef NS_ENUM(NSUInteger, MessageType)
     gyroFactor = 8.0;
     
     motionManager = [[CMMotionManager alloc] init];
-    [motionManager setDeviceMotionUpdateInterval:0.1];
+    [self setUpdatesPerSec:10];
+    
     __weak id weakSelf = self;
     [motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
         //printf("%s", [[[motion attitude] debugDescription] UTF8String]);
@@ -65,11 +70,18 @@ typedef NS_ENUM(NSUInteger, MessageType)
     
     
     // ** UI **
-    [_updateIntervalTextField setText:[NSString stringWithFormat:@"%d", (int)_updateIntervalSlider.value]];
     [_portTextField setText:[NSString stringWithFormat:@"%d", port]];
     [_portTextField setDelegate:self];
     [_startstopServerButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [_startstopServerButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+}
+
+
+- (void)setUpdatesPerSec:(int)ups {
+    [_updateIntervalSlider setValue:ups];
+    [_updateIntervalTextField setText:[NSString stringWithFormat:@"%d", ups]];
+    updatesPerSec = ups;
+    [motionManager setDeviceMotionUpdateInterval:(1.0 / updatesPerSec)];
 }
 
 - (void)startServer {
@@ -141,17 +153,20 @@ typedef NS_ENUM(NSUInteger, MessageType)
     }
 }
 
-- (IBAction)updateIntervalChanged:(id)sender {
-    NSString *valueText = [NSString stringWithFormat:@"%d", (int)_updateIntervalSlider.value];
+// only updates textfield value
+- (IBAction)intervalSliderChanged:(id)sender {
+    int intValue = (int)_updateIntervalSlider.value;
+    NSString *valueText = [NSString stringWithFormat:@"%d", intValue];
     [_updateIntervalTextField setText:valueText];
 }
 
+// updates textfield & slider values and changes update interval internally
 - (IBAction)setIntervalPressed:(id)sender {
     if([_updateIntervalTextField hasText]
        && [[_updateIntervalTextField text] intValue] >= _updateIntervalSlider.minimumValue
        && [[_updateIntervalTextField text] intValue] <= _updateIntervalSlider.maximumValue) {
         int intValue = [[_updateIntervalTextField text] intValue];
-        [_updateIntervalSlider setValue:intValue];
+        [self setUpdatesPerSec:intValue];
         [self.view endEditing:true];
     } else {
         NSString *errorMessage = [NSString stringWithFormat:@"The update interval must be in the range %d-%d", (int)_updateIntervalSlider.minimumValue, (int)_updateIntervalSlider.maximumValue];

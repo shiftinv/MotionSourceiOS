@@ -17,11 +17,12 @@
 @property (weak, nonatomic) IBOutlet UISlider *updateIntervalSlider;
 @property (weak, nonatomic) IBOutlet UITextField *updateIntervalTextField;
 
+- (void)setUpdatesPerSec:(int)ups;
 - (void)startServer;
 - (void)stopServer;
 - (IBAction)startstopServer;
 - (IBAction)setPortPressed:(id)sender;
-- (IBAction)updateIntervalChanged:(id)sender;
+- (IBAction)intervalSliderChanged:(id)sender;
 - (IBAction)setIntervalPressed:(id)sender;
 - (void)displayErrorWithMessage:(NSString *)message;
 - (void)handleMotionUpdate:(CMDeviceMotion *)motionData withError:(NSError *)error;
