@@ -37,7 +37,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     // ** Gyroscope **
     CMMotionManager *motionManager;
     CMDeviceMotion *lastMotionData;
-    float gyroFactor;
+    float gyroSensitivity;
     int updatesPerSec;
 }
 
@@ -57,7 +57,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     
     // ** Gyroscope **
     
-    gyroFactor = 8.0;
+    [self setGyroSensitivity:8];
     
     motionManager = [[CMMotionManager alloc] init];
     [self setUpdatesPerSec:10];
@@ -83,6 +83,14 @@ typedef NS_ENUM(NSUInteger, MessageType)
     updatesPerSec = ups;
     [motionManager setDeviceMotionUpdateInterval:(1.0 / updatesPerSec)];
 }
+
+- (void)setGyroSensitivity:(int)sensitivity {
+    [_sensitivitySlider setValue:sensitivity];
+    [_sensitivityTextField setText:[NSString stringWithFormat:@"%d", sensitivity]];
+    gyroSensitivity = sensitivity;
+    NSLog(@"%d", sensitivity);
+}
+
 
 - (void)startServer {
     if(serverStarted) {
@@ -170,6 +178,25 @@ typedef NS_ENUM(NSUInteger, MessageType)
         [self.view endEditing:true];
     } else {
         NSString *errorMessage = [NSString stringWithFormat:@"The update interval must be in the range %d-%d", (int)_updateIntervalSlider.minimumValue, (int)_updateIntervalSlider.maximumValue];
+        [self displayErrorWithMessage:errorMessage];
+    }
+}
+
+- (IBAction)sensitivitySliderChanged:(id)sender {
+    int intValue = (int)_sensitivitySlider.value;
+    NSString *valueText = [NSString stringWithFormat:@"%d", intValue];
+    [_sensitivityTextField setText:valueText];
+}
+
+- (IBAction)setSensitivityPressed:(id)sender {
+    if([_sensitivityTextField hasText]
+       && [[_sensitivityTextField text] intValue] >= _sensitivitySlider.minimumValue
+       && [[_sensitivityTextField text] intValue] <= _sensitivitySlider.maximumValue) {
+        int intValue = [[_sensitivityTextField text] intValue];
+        [self setGyroSensitivity:intValue];
+        [self.view endEditing:true];
+    } else {
+        NSString *errorMessage = [NSString stringWithFormat:@"The sensitivity must be in the range %d-%d", (int)_sensitivitySlider.minimumValue, (int)_sensitivitySlider.maximumValue];
         [self displayErrorWithMessage:errorMessage];
     }
 }
@@ -268,9 +295,9 @@ typedef NS_ENUM(NSUInteger, MessageType)
         yDelta = motionData.attitude.roll;
         zDelta = motionData.attitude.yaw;
     }
-    xDelta = radtodeg(xDelta) * gyroFactor;
-    yDelta = -radtodeg(yDelta) * gyroFactor;
-    zDelta = -radtodeg(zDelta) * gyroFactor;
+    xDelta = radtodeg(xDelta) * gyroSensitivity;
+    yDelta = -radtodeg(yDelta) * gyroSensitivity;
+    zDelta = -radtodeg(zDelta) * gyroSensitivity;
     
     *(uint32_t *)(outPtr) = *(uint32_t *)&yDelta;
     outPtr += 4;
