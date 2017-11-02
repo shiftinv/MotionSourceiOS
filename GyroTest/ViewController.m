@@ -39,6 +39,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     CMDeviceMotion *lastMotionData;
     float gyroSensitivity;
     int updatesPerSec;
+    UIDeviceOrientation orientation;
 }
 
 @end
@@ -74,6 +75,13 @@ typedef NS_ENUM(NSUInteger, MessageType)
     [_portTextField setDelegate:self];
     [_startstopServerButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [_startstopServerButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+    for(UIButton *button in _rotationButtons) {
+        if(button.tag == 0) { // only runs for the first (portrait) button
+            [self changeRotation:button];
+        }
+        [button setBackgroundColor:[UIColor colorWithWhite:0.85f alpha:1.0f]];
+        [button.layer setCornerRadius:12.0f];
+    }
 }
 
 
@@ -201,6 +209,30 @@ typedef NS_ENUM(NSUInteger, MessageType)
     }
 }
 
+- (IBAction)changeRotation:(UIButton *)sender {
+    for(UIButton *button in _rotationButtons) {
+        if(button == sender)
+            [button.layer setBorderWidth:3.0f];
+        else
+            [button.layer setBorderWidth:0.0f];
+    }
+    switch(sender.tag) {
+        case 0:
+            orientation = UIDeviceOrientationPortrait;
+            break;
+        case 1:
+            orientation = UIDeviceOrientationLandscapeRight;
+            break;
+        case 2:
+            orientation = UIDeviceOrientationPortraitUpsideDown;
+            break;
+        case 3:
+            orientation = UIDeviceOrientationLandscapeLeft;
+            break;
+    }
+}
+
+
 - (void)displayErrorWithMessage:(NSString *)message {
     UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Error" message:message preferredStyle:UIAlertControllerStyleAlert];
     [controller addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
@@ -285,25 +317,51 @@ typedef NS_ENUM(NSUInteger, MessageType)
     memset(outPtr, 0, 12); // accelerometer
     outPtr += 12;
     
-    float xDelta, yDelta, zDelta;
+    float pitchDelta, rollDelta, yawDelta;
     if(lastMotionData) {
-        xDelta = motionData.attitude.pitch - lastMotionData.attitude.pitch;
-        yDelta = motionData.attitude.roll - lastMotionData.attitude.roll;
-        zDelta = motionData.attitude.yaw - lastMotionData.attitude.yaw;
+        pitchDelta = motionData.attitude.pitch - lastMotionData.attitude.pitch;
+        rollDelta = motionData.attitude.roll - lastMotionData.attitude.roll;
+        yawDelta = motionData.attitude.yaw - lastMotionData.attitude.yaw;
     } else {
-        xDelta = motionData.attitude.pitch;
-        yDelta = motionData.attitude.roll;
-        zDelta = motionData.attitude.yaw;
+        pitchDelta = motionData.attitude.pitch;
+        rollDelta = motionData.attitude.roll;
+        yawDelta = motionData.attitude.yaw;
     }
-    xDelta = radtodeg(xDelta) * gyroSensitivity;
-    yDelta = -radtodeg(yDelta) * gyroSensitivity;
-    zDelta = -radtodeg(zDelta) * gyroSensitivity;
+    pitchDelta = radtodeg(pitchDelta) * gyroSensitivity;
+    rollDelta = radtodeg(rollDelta) * gyroSensitivity;
+    yawDelta = radtodeg(yawDelta) * gyroSensitivity;
     
+    float xDelta, yDelta, zDelta;
+    switch(orientation) {
+        case UIDeviceOrientationPortrait:
+            xDelta = pitchDelta;
+            yDelta = -yawDelta;
+            zDelta = rollDelta;
+            break;
+        case UIDeviceOrientationLandscapeRight:
+            xDelta = rollDelta;
+            yDelta = -yawDelta;
+            zDelta = -pitchDelta;
+            break;
+        case UIDeviceOrientationPortraitUpsideDown:
+            xDelta = -pitchDelta;
+            yDelta = -yawDelta;
+            zDelta = -rollDelta;
+            break;
+        case UIDeviceOrientationLandscapeLeft:
+            xDelta = -rollDelta;
+            yDelta = -yawDelta;
+            zDelta = pitchDelta;
+            break;
+        default:    // just to silence xcode warnings, this should never run
+            return;
+    }
+    
+    *(uint32_t *)(outPtr) = *(uint32_t *)&xDelta;
+    outPtr += 4;
     *(uint32_t *)(outPtr) = *(uint32_t *)&yDelta;
     outPtr += 4;
     *(uint32_t *)(outPtr) = *(uint32_t *)&zDelta;
-    outPtr += 4;
-    *(uint32_t *)(outPtr) = *(uint32_t *)&xDelta;
     outPtr += 4;
     
     

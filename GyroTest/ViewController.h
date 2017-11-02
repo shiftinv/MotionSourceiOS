@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UISlider *sensitivitySlider;
 @property (weak, nonatomic) IBOutlet UITextField *sensitivityTextField;
 
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *rotationButtons;
+
 - (void)setUpdatesPerSec:(int)ups;
 - (void)setGyroSensitivity:(int)sensitivity;
 - (void)startServer;
@@ -29,6 +31,7 @@
 - (IBAction)setIntervalPressed:(id)sender;
 - (IBAction)sensitivitySliderChanged:(id)sender;
 - (IBAction)setSensitivityPressed:(id)sender;
+- (IBAction)changeRotation:(UIButton *)sender;
 - (void)displayErrorWithMessage:(NSString *)message;
 - (void)handleMotionUpdate:(CMDeviceMotion *)motionData withError:(NSError *)error;
 

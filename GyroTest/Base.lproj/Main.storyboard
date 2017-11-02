@@ -124,19 +124,89 @@
                                     <action selector="setSensitivityPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nFm-ip-3sr"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQK-ap-IwB" userLabel="Separator View">
+                                <rect key="frame" x="20" y="366" width="335" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="4Mb-va-goO"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device Orientation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGa-Lt-SA6">
+                                <rect key="frame" x="20" y="387" width="128" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HZ4-Tp-ehh">
+                                <rect key="frame" x="28" y="425" width="319" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7q-EJ-vvk">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="ioP-cW-3Z4"/>
+                                            <constraint firstAttribute="width" constant="70" id="yYT-kd-RDX"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="iphone-icon_0"/>
+                                        <connections>
+                                            <action selector="changeRotation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ryT-Ee-2H5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xl-kq-Kbv">
+                                        <rect key="frame" x="83" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="16R-Tw-F4b"/>
+                                            <constraint firstAttribute="height" constant="70" id="RUv-NT-oid"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="iphone-icon_90"/>
+                                        <connections>
+                                            <action selector="changeRotation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IsJ-Xj-pkg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aei-QH-TBs">
+                                        <rect key="frame" x="166" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="OAl-Nr-Ki5"/>
+                                            <constraint firstAttribute="height" constant="70" id="vdz-9W-HbG"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="iphone-icon_180"/>
+                                        <connections>
+                                            <action selector="changeRotation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dZj-d5-Lwf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhM-RW-ovu">
+                                        <rect key="frame" x="249" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="UcI-LP-L3H"/>
+                                            <constraint firstAttribute="height" constant="70" id="hRv-VH-2TG"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="iphone-icon_270"/>
+                                        <connections>
+                                            <action selector="changeRotation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4mM-7I-VaZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="ZZL-I3-fGU"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="MQK-ap-IwB" firstAttribute="top" secondItem="VTD-6I-TcW" secondAttribute="bottom" constant="12" id="0Ms-Wi-uPJ"/>
+                            <constraint firstItem="pGa-Lt-SA6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="1EY-Ir-0u1"/>
                             <constraint firstItem="Gua-QS-o39" firstAttribute="leading" secondItem="Z2g-Ef-Yjo" secondAttribute="trailing" constant="8" id="1mG-Iz-g1i"/>
                             <constraint firstItem="VTD-6I-TcW" firstAttribute="top" secondItem="z5g-zi-A53" secondAttribute="bottom" constant="12" id="2WW-yH-Deu"/>
                             <constraint firstItem="Z2g-Ef-Yjo" firstAttribute="leading" secondItem="VpB-Sx-BaG" secondAttribute="trailing" constant="8" id="2YK-Hr-cs7"/>
                             <constraint firstItem="02o-T7-oSj" firstAttribute="top" secondItem="75A-ch-Pmh" secondAttribute="bottom" constant="20" id="2f8-1h-RKn"/>
+                            <constraint firstItem="HZ4-Tp-ehh" firstAttribute="top" secondItem="pGa-Lt-SA6" secondAttribute="bottom" constant="20" id="4eP-mN-WB5"/>
                             <constraint firstItem="bTT-eu-5Nk" firstAttribute="centerY" secondItem="Z2g-Ef-Yjo" secondAttribute="centerY" id="7ML-Fm-QEh"/>
                             <constraint firstItem="Gua-QS-o39" firstAttribute="centerY" secondItem="Z2g-Ef-Yjo" secondAttribute="centerY" id="8rZ-gD-s51"/>
                             <constraint firstItem="02o-T7-oSj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="BIU-oU-aoo"/>
                             <constraint firstItem="bTT-eu-5Nk" firstAttribute="leading" secondItem="Gua-QS-o39" secondAttribute="trailing" constant="8" id="BVx-VM-DJd"/>
                             <constraint firstItem="MnF-Xd-Fog" firstAttribute="top" secondItem="5Qk-2k-GnI" secondAttribute="bottom" constant="12" id="GGB-lu-Crp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="R4V-x6-jJN" secondAttribute="trailing" constant="4" id="Hzg-ic-pOl"/>
+                            <constraint firstItem="HZ4-Tp-ehh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="12" id="KAq-ju-JMm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MQK-ap-IwB" secondAttribute="trailing" constant="4" id="P4d-bT-P2H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IlJ-Bk-iF1" secondAttribute="trailing" constant="4" id="S5B-wh-Fmo"/>
                             <constraint firstItem="IlJ-Bk-iF1" firstAttribute="leading" secondItem="5Qk-2k-GnI" secondAttribute="trailing" constant="20" id="WHp-YG-KRZ"/>
                             <constraint firstItem="5Qk-2k-GnI" firstAttribute="top" secondItem="oHt-Kg-TMH" secondAttribute="bottom" constant="12" id="WMx-ix-THH"/>
@@ -151,6 +221,7 @@
                             <constraint firstItem="R4V-x6-jJN" firstAttribute="leading" secondItem="z5g-zi-A53" secondAttribute="trailing" constant="20" id="hf9-PD-sbJ"/>
                             <constraint firstItem="oHt-Kg-TMH" firstAttribute="top" secondItem="DCx-3j-nId" secondAttribute="bottom" constant="20" id="hzk-E7-dzO"/>
                             <constraint firstItem="VTD-6I-TcW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jBE-KL-JNp"/>
+                            <constraint firstItem="MQK-ap-IwB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="kze-fa-V5a"/>
                             <constraint firstItem="VpB-Sx-BaG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="nPv-MS-OMk"/>
                             <constraint firstItem="oHt-Kg-TMH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="nl1-M7-V5m"/>
                             <constraint firstItem="MnF-Xd-Fog" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ohg-Rk-MIi"/>
@@ -158,8 +229,10 @@
                             <constraint firstItem="R4V-x6-jJN" firstAttribute="centerY" secondItem="z5g-zi-A53" secondAttribute="centerY" id="p60-22-d5t"/>
                             <constraint firstItem="5Qk-2k-GnI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="pMR-HN-WyZ"/>
                             <constraint firstItem="75A-ch-Pmh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="qRu-vX-Kz1"/>
+                            <constraint firstItem="pGa-Lt-SA6" firstAttribute="top" secondItem="MQK-ap-IwB" secondAttribute="bottom" constant="20" id="v7G-hm-GvL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bTT-eu-5Nk" secondAttribute="trailing" constant="4" id="v8T-9K-7hP"/>
                             <constraint firstItem="DCx-3j-nId" firstAttribute="top" secondItem="Z2g-Ef-Yjo" secondAttribute="bottom" constant="20" id="wyt-1M-fSS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HZ4-Tp-ehh" secondAttribute="trailing" constant="12" id="zYa-ta-zBi"/>
                         </constraints>
                     </view>
                     <connections>
@@ -169,6 +242,10 @@
                         <outlet property="startstopServerButton" destination="bTT-eu-5Nk" id="0b2-zB-Zh8"/>
                         <outlet property="updateIntervalSlider" destination="5Qk-2k-GnI" id="AGw-c1-8Aa"/>
                         <outlet property="updateIntervalTextField" destination="IlJ-Bk-iF1" id="kXo-vi-kOA"/>
+                        <outletCollection property="rotationButtons" destination="Aei-QH-TBs" id="gX3-S7-sLF"/>
+                        <outletCollection property="rotationButtons" destination="XhM-RW-ovu" id="ApS-0e-pei"/>
+                        <outletCollection property="rotationButtons" destination="9Xl-kq-Kbv" id="CMg-SH-mwP"/>
+                        <outletCollection property="rotationButtons" destination="f7q-EJ-vvk" id="Z7l-2n-jg2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -176,4 +253,10 @@
             <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iphone-icon_0" width="100" height="100"/>
+        <image name="iphone-icon_180" width="100" height="100"/>
+        <image name="iphone-icon_270" width="100" height="100"/>
+        <image name="iphone-icon_90" width="100" height="100"/>
+    </resources>
 </document>
