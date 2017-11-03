@@ -75,9 +75,9 @@ typedef NS_ENUM(NSUInteger, MessageType)
     [_portTextField setDelegate:self];
     [_startstopServerButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [_startstopServerButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
-    for(UIButton *button in _rotationButtons) {
+    for(UIButton *button in _orientationButtons) {
         if(button.tag == 0) { // only runs for the first (portrait) button
-            [self changeRotation:button];
+            [self changeOrientation:button];
         }
         [button setBackgroundColor:[UIColor colorWithWhite:0.85f alpha:1.0f]];
         [button.layer setCornerRadius:12.0f];
@@ -209,8 +209,8 @@ typedef NS_ENUM(NSUInteger, MessageType)
     }
 }
 
-- (IBAction)changeRotation:(UIButton *)sender {
-    for(UIButton *button in _rotationButtons) {
+- (IBAction)changeOrientation:(UIButton *)sender {
+    for(UIButton *button in _orientationButtons) {
         if(button == sender)
             [button.layer setBorderWidth:3.0f];
         else

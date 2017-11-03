@@ -23,13 +23,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Port:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VpB-Sx-BaG">
-                                <rect key="frame" x="20" y="52" width="34" height="18"/>
+                                <rect key="frame" x="20" y="52" width="33.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z2g-Ef-Yjo">
-                                <rect key="frame" x="62" y="46" width="70" height="30"/>
+                                <rect key="frame" x="61.5" y="46" width="70" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="jCW-Mb-T1V"/>
                                 </constraints>
@@ -38,14 +38,14 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gua-QS-o39">
-                                <rect key="frame" x="140" y="46" width="30" height="30"/>
+                                <rect key="frame" x="139.5" y="46" width="30" height="30"/>
                                 <state key="normal" title="Set"/>
                                 <connections>
                                     <action selector="setPortPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ccO-ub-4Em"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTT-eu-5Nk">
-                                <rect key="frame" x="178" y="42" width="177" height="38"/>
+                                <rect key="frame" x="177.5" y="42" width="177.5" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Start Server">
                                     <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,7 +62,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gyroscope Update Interval (updates/s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHt-Kg-TMH">
-                                <rect key="frame" x="20" y="117" width="266" height="18"/>
+                                <rect key="frame" x="20" y="117" width="265.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -132,7 +132,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device Orientation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGa-Lt-SA6">
-                                <rect key="frame" x="20" y="387" width="128" height="18"/>
+                                <rect key="frame" x="20" y="387" width="127.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -148,7 +148,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="iphone-icon_0"/>
                                         <connections>
-                                            <action selector="changeRotation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ryT-Ee-2H5"/>
+                                            <action selector="changeOrientation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bj0-fU-nTL"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xl-kq-Kbv">
@@ -159,7 +159,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="iphone-icon_90"/>
                                         <connections>
-                                            <action selector="changeRotation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IsJ-Xj-pkg"/>
+                                            <action selector="changeOrientation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ghe-RH-pJb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aei-QH-TBs">
@@ -170,7 +170,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="iphone-icon_180"/>
                                         <connections>
-                                            <action selector="changeRotation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dZj-d5-Lwf"/>
+                                            <action selector="changeOrientation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dqD-Pi-o9G"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhM-RW-ovu">
@@ -181,7 +181,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="iphone-icon_270"/>
                                         <connections>
-                                            <action selector="changeRotation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4mM-7I-VaZ"/>
+                                            <action selector="changeOrientation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jcl-uq-rsR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -242,10 +242,10 @@
                         <outlet property="startstopServerButton" destination="bTT-eu-5Nk" id="0b2-zB-Zh8"/>
                         <outlet property="updateIntervalSlider" destination="5Qk-2k-GnI" id="AGw-c1-8Aa"/>
                         <outlet property="updateIntervalTextField" destination="IlJ-Bk-iF1" id="kXo-vi-kOA"/>
-                        <outletCollection property="rotationButtons" destination="Aei-QH-TBs" id="gX3-S7-sLF"/>
-                        <outletCollection property="rotationButtons" destination="XhM-RW-ovu" id="ApS-0e-pei"/>
-                        <outletCollection property="rotationButtons" destination="9Xl-kq-Kbv" id="CMg-SH-mwP"/>
-                        <outletCollection property="rotationButtons" destination="f7q-EJ-vvk" id="Z7l-2n-jg2"/>
+                        <outletCollection property="orientationButtons" destination="f7q-EJ-vvk" id="I1A-hT-MFi"/>
+                        <outletCollection property="orientationButtons" destination="9Xl-kq-Kbv" id="Hq9-j8-LAj"/>
+                        <outletCollection property="orientationButtons" destination="Aei-QH-TBs" id="8Y1-eE-Gvk"/>
+                        <outletCollection property="orientationButtons" destination="XhM-RW-ovu" id="fG3-UQ-6cd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
