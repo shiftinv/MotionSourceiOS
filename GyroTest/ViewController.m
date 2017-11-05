@@ -15,6 +15,8 @@
 
 #define radtodeg(x) (x * 180.0 / M_PI)
 
+#define CLIENT_TIMEOUT_MS 3000
+
 typedef NS_ENUM(NSUInteger, MessageType)
 {
     MessageTypeDSUCVersionReq = 0x100000,
@@ -32,6 +34,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     uint16_t port;
     NSUInteger packetCounter;
     NSData *lastAddress;
+    NSTimeInterval lastReceiveTime;
     GCDAsyncUdpSocket *socket;
     
     // ** Gyroscope **
@@ -54,20 +57,13 @@ typedef NS_ENUM(NSUInteger, MessageType)
     serverStarted = false;
     port = 26760;
     packetCounter = 0;
+    lastReceiveTime = 0;
     
     
     // ** Gyroscope **
     
     [self setGyroSensitivity:8];
-    
-    motionManager = [[CMMotionManager alloc] init];
     [self setUpdatesPerSec:10];
-    
-    __weak id weakSelf = self;
-    [motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
-        //printf("%s", [[[motion attitude] debugDescription] UTF8String]);
-        [weakSelf handleMotionUpdate:motion withError:error];
-    }];
     
     
     // ** UI **
@@ -89,7 +85,8 @@ typedef NS_ENUM(NSUInteger, MessageType)
     [_updateIntervalSlider setValue:ups];
     [_updateIntervalTextField setText:[NSString stringWithFormat:@"%d", ups]];
     updatesPerSec = ups;
-    [motionManager setDeviceMotionUpdateInterval:(1.0 / updatesPerSec)];
+    if(motionManager)
+        [motionManager setDeviceMotionUpdateInterval:(1.0 / updatesPerSec)];
 }
 
 - (void)setGyroSensitivity:(int)sensitivity {
@@ -99,6 +96,27 @@ typedef NS_ENUM(NSUInteger, MessageType)
     NSLog(@"%d", sensitivity);
 }
 
+
+- (void)startGyroUpdates {
+    if(!motionManager) {
+        motionManager = [[CMMotionManager alloc] init];
+        [motionManager setDeviceMotionUpdateInterval:(1.0 / updatesPerSec)];
+    }
+    
+    __weak id weakSelf = self;
+    [motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
+        if(CACurrentMediaTime() > lastReceiveTime + (CLIENT_TIMEOUT_MS / 1000)) {
+            lastAddress = nil;
+            [weakSelf stopGyroUpdates];
+        }
+        [weakSelf handleMotionUpdate:motion withError:error];
+    }];
+}
+
+- (void)stopGyroUpdates {
+    if(motionManager)
+        [motionManager stopDeviceMotionUpdates];
+}
 
 - (void)startServer {
     if(serverStarted) {
@@ -141,6 +159,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     
     NSLog(@"Stopping server..");
     [socket close];
+    [self stopGyroUpdates];
     [_startstopServerButton setEnabled:false];
     // button waits for delegate method udpSocketDidClose:withError: to be called
 }
@@ -372,7 +391,13 @@ typedef NS_ENUM(NSUInteger, MessageType)
 
 
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext {
+    bool newClient = false;
+    if(!lastAddress)
+        newClient = true;
     lastAddress = address;
+    lastReceiveTime = CACurrentMediaTime();
+    if(newClient)
+        [self startGyroUpdates];
     
     //NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     //hexd(data);

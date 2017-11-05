@@ -23,6 +23,8 @@
 
 - (void)setUpdatesPerSec:(int)ups;
 - (void)setGyroSensitivity:(int)sensitivity;
+- (void)startGyroUpdates;
+- (void)stopGyroUpdates;
 - (void)startServer;
 - (void)stopServer;
 - (IBAction)startstopServer;

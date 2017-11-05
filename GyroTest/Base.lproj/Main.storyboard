@@ -25,13 +25,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Port:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VpB-Sx-BaG">
-                                <rect key="frame" x="20" y="52" width="34" height="18"/>
+                                <rect key="frame" x="20" y="52" width="33.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z2g-Ef-Yjo">
-                                <rect key="frame" x="62" y="46" width="70" height="30"/>
+                                <rect key="frame" x="61.5" y="46" width="70" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="jCW-Mb-T1V"/>
                                 </constraints>
@@ -40,14 +40,14 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gua-QS-o39">
-                                <rect key="frame" x="140" y="46" width="30" height="30"/>
+                                <rect key="frame" x="139.5" y="46" width="30" height="30"/>
                                 <state key="normal" title="Set"/>
                                 <connections>
                                     <action selector="setPortPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ccO-ub-4Em"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTT-eu-5Nk">
-                                <rect key="frame" x="178" y="42" width="177" height="38"/>
+                                <rect key="frame" x="177.5" y="42" width="177.5" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Start Server">
                                     <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -64,7 +64,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gyroscope Update Interval (updates/s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHt-Kg-TMH">
-                                <rect key="frame" x="20" y="117" width="266" height="18"/>
+                                <rect key="frame" x="20" y="117" width="265.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -104,7 +104,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="z5g-zi-A53">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="z5g-zi-A53">
                                 <rect key="frame" x="18" y="282" width="249" height="31"/>
                                 <connections>
                                     <action selector="sensitivitySliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="DiU-Ij-GYl"/>
@@ -134,7 +134,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device Orientation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGa-Lt-SA6">
-                                <rect key="frame" x="20" y="387" width="128" height="18"/>
+                                <rect key="frame" x="20" y="387" width="127.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
