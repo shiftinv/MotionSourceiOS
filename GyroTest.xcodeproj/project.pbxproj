@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		288E90E00D0EAD91466A1D10 /* Pods_GyroTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF01F17CF91D2F4B9167E01A /* Pods_GyroTest.framework */; };
+		222CA5B93AC6FE02BA9B9A08 /* Pods_GyroTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383818A52EA4AA11421B89A4 /* Pods_GyroTest.framework */; };
 		F491FBA21FA4F0FC005B57A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F491FBA11FA4F0FC005B57A8 /* main.m */; };
 		F491FBA51FA4F0FC005B57A8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F491FBA41FA4F0FC005B57A8 /* AppDelegate.m */; };
 		F491FBA81FA4F0FC005B57A8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F491FBA71FA4F0FC005B57A8 /* ViewController.m */; };
 		F491FBAB1FA4F0FC005B57A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F491FBA91FA4F0FC005B57A8 /* Main.storyboard */; };
 		F491FBAD1FA4F0FC005B57A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F491FBAC1FA4F0FC005B57A8 /* Assets.xcassets */; };
 		F491FBB01FA4F0FC005B57A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F491FBAE1FA4F0FC005B57A8 /* LaunchScreen.storyboard */; };
-		F4E83CDB1FA4F92000B0BB14 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44B114F1FA4F8F3001C8D6E /* CocoaAsyncSocket.framework */; };
-		F4E83CDC1FA4F92000B0BB14 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F44B114F1FA4F8F3001C8D6E /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F4D364371FAF932A00D3EB35 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D364351FAF931A00D3EB35 /* CocoaAsyncSocket.framework */; };
+		F4D364381FAF932A00D3EB35 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F4D364351FAF931A00D3EB35 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F4E83CDF1FA519B400B0BB14 /* PacketHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E83CDE1FA519B400B0BB14 /* PacketHandler.m */; };
 		F4E83CE31FA5298400B0BB14 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E83CE21FA5298400B0BB14 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		F4E83CDD1FA4F92000B0BB14 /* Embed Frameworks */ = {
+		F4D364341FAF930E00D3EB35 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F4E83CDC1FA4F92000B0BB14 /* CocoaAsyncSocket.framework in Embed Frameworks */,
+				F4D364381FAF932A00D3EB35 /* CocoaAsyncSocket.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,11 +35,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AF01F17CF91D2F4B9167E01A /* Pods_GyroTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GyroTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA602F60E77ECF81E21CFF72 /* Pods-GyroTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyroTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-GyroTest/Pods-GyroTest.release.xcconfig"; sourceTree = "<group>"; };
-		ED0FC704B2244161F2984019 /* Pods-GyroTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyroTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GyroTest/Pods-GyroTest.debug.xcconfig"; sourceTree = "<group>"; };
-		F44B11481FA4F7B4001C8D6E /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = "Pods/../build/Debug-iphoneos/CocoaAsyncSocket/CocoaAsyncSocket.framework"; sourceTree = "<group>"; };
-		F44B114F1FA4F8F3001C8D6E /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = "../../../Library/Developer/Xcode/DerivedData/GyroTest-ceamxzybigwajxbaevykpmooecpq/Build/Products/Debug-iphoneos/CocoaAsyncSocket/CocoaAsyncSocket.framework"; sourceTree = "<group>"; };
+		383818A52EA4AA11421B89A4 /* Pods_GyroTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GyroTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7ED09CFF32F3A784307547 /* Pods-GyroTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyroTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-GyroTest/Pods-GyroTest.release.xcconfig"; sourceTree = "<group>"; };
+		DC650C462AE1978FF6C322C1 /* Pods-GyroTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyroTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GyroTest/Pods-GyroTest.debug.xcconfig"; sourceTree = "<group>"; };
 		F491FB9D1FA4F0FC005B57A8 /* GyroTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GyroTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F491FBA11FA4F0FC005B57A8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F491FBA31FA4F0FC005B57A8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -50,6 +48,7 @@
 		F491FBAC1FA4F0FC005B57A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F491FBAF1FA4F0FC005B57A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F491FBB11FA4F0FC005B57A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4D364351FAF931A00D3EB35 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = "../../../Library/Developer/Xcode/DerivedData/GyroTest-ceamxzybigwajxbaevykpmooecpq/Build/Products/Debug-iphoneos/CocoaAsyncSocket/CocoaAsyncSocket.framework"; sourceTree = "<group>"; };
 		F4E83CDE1FA519B400B0BB14 /* PacketHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PacketHandler.m; sourceTree = "<group>"; };
 		F4E83CE01FA519C200B0BB14 /* PacketHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PacketHandler.h; sourceTree = "<group>"; };
 		F4E83CE11FA51CA300B0BB14 /* hexd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hexd.h; sourceTree = "<group>"; };
@@ -61,9 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4D364371FAF932A00D3EB35 /* CocoaAsyncSocket.framework in Frameworks */,
 				F4E83CE31FA5298400B0BB14 /* libz.tbd in Frameworks */,
-				F4E83CDB1FA4F92000B0BB14 /* CocoaAsyncSocket.framework in Frameworks */,
-				288E90E00D0EAD91466A1D10 /* Pods_GyroTest.framework in Frameworks */,
+				222CA5B93AC6FE02BA9B9A08 /* Pods_GyroTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,19 +72,18 @@
 		820F2EB7E2F262AB5B43D0C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F4D364351FAF931A00D3EB35 /* CocoaAsyncSocket.framework */,
 				F4E83CE21FA5298400B0BB14 /* libz.tbd */,
-				F44B114F1FA4F8F3001C8D6E /* CocoaAsyncSocket.framework */,
-				F44B11481FA4F7B4001C8D6E /* CocoaAsyncSocket.framework */,
-				AF01F17CF91D2F4B9167E01A /* Pods_GyroTest.framework */,
+				383818A52EA4AA11421B89A4 /* Pods_GyroTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BA122A61DDFB4C1985AA6B8A /* Pods */ = {
+		ACC3649D23B44534AAE6CD79 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				ED0FC704B2244161F2984019 /* Pods-GyroTest.debug.xcconfig */,
-				DA602F60E77ECF81E21CFF72 /* Pods-GyroTest.release.xcconfig */,
+				DC650C462AE1978FF6C322C1 /* Pods-GyroTest.debug.xcconfig */,
+				AA7ED09CFF32F3A784307547 /* Pods-GyroTest.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -96,7 +94,7 @@
 				F491FB9F1FA4F0FC005B57A8 /* GyroTest */,
 				F491FB9E1FA4F0FC005B57A8 /* Products */,
 				820F2EB7E2F262AB5B43D0C6 /* Frameworks */,
-				BA122A61DDFB4C1985AA6B8A /* Pods */,
+				ACC3649D23B44534AAE6CD79 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,13 +140,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F491FBB41FA4F0FC005B57A8 /* Build configuration list for PBXNativeTarget "GyroTest" */;
 			buildPhases = (
-				0D0A8D286EFF5F5CC2E2B764 /* [CP] Check Pods Manifest.lock */,
+				4C81E20FA1818574FD55B290 /* [CP] Check Pods Manifest.lock */,
 				F491FB991FA4F0FC005B57A8 /* Sources */,
 				F491FB9A1FA4F0FC005B57A8 /* Frameworks */,
 				F491FB9B1FA4F0FC005B57A8 /* Resources */,
-				8BD5EAA85C654DC7A0DBBAC5 /* [CP] Embed Pods Frameworks */,
-				0AF523D96B20C92D39799F01 /* [CP] Copy Pods Resources */,
-				F4E83CDD1FA4F92000B0BB14 /* Embed Frameworks */,
+				F4D364341FAF930E00D3EB35 /* Embed Frameworks */,
+				E03F4E6AE01AD4ADA70F6319 /* [CP] Embed Pods Frameworks */,
+				7BAA69B4FFCE020FB9C7DF9B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,22 +205,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0AF523D96B20C92D39799F01 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GyroTest/Pods-GyroTest-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0D0A8D286EFF5F5CC2E2B764 /* [CP] Check Pods Manifest.lock */ = {
+		4C81E20FA1818574FD55B290 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -240,7 +223,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8BD5EAA85C654DC7A0DBBAC5 /* [CP] Embed Pods Frameworks */ = {
+		7BAA69B4FFCE020FB9C7DF9B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GyroTest/Pods-GyroTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E03F4E6AE01AD4ADA70F6319 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -390,39 +388,47 @@
 		};
 		F491FBB51FA4F0FC005B57A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED0FC704B2244161F2984019 /* Pods-GyroTest.debug.xcconfig */;
+			baseConfigurationReference = DC650C462AE1978FF6C322C1 /* Pods-GyroTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = AY8XQ7MVKN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/CocoaAsyncSocket",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = GyroTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cc.shiftinv.GyroTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		F491FBB61FA4F0FC005B57A8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA602F60E77ECF81E21CFF72 /* Pods-GyroTest.release.xcconfig */;
+			baseConfigurationReference = AA7ED09CFF32F3A784307547 /* Pods-GyroTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = AY8XQ7MVKN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/CocoaAsyncSocket",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = GyroTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cc.shiftinv.GyroTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
