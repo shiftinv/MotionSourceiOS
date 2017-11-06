@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD19385CC422B7729C1AA0C7 /* Pods_MotionSourceiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47CE8F7A5F30282329EB7AF3 /* Pods_MotionSourceiOS.framework */; };
+		823B317AE5A2FF71B9233C74 /* Pods_MotionSourceiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2365FE37D47755D07A1D2E /* Pods_MotionSourceiOS.framework */; };
+		F408D4951FB0B81B00C0F134 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49E1B161FB0B7AF009C2A9C /* CocoaAsyncSocket.framework */; };
+		F408D4961FB0B81B00C0F134 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F49E1B161FB0B7AF009C2A9C /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F491FBA21FA4F0FC005B57A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F491FBA11FA4F0FC005B57A8 /* main.m */; };
 		F491FBA51FA4F0FC005B57A8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F491FBA41FA4F0FC005B57A8 /* AppDelegate.m */; };
 		F491FBA81FA4F0FC005B57A8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F491FBA71FA4F0FC005B57A8 /* ViewController.m */; };
@@ -18,10 +20,24 @@
 		F4E83CE31FA5298400B0BB14 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E83CE21FA5298400B0BB14 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F49E1B151FB0B79C009C2A9C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F408D4961FB0B81B00C0F134 /* CocoaAsyncSocket.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		0ABED0E8C64AEF67B92E9DE3 /* Pods-MotionSourceiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotionSourceiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotionSourceiOS/Pods-MotionSourceiOS.debug.xcconfig"; sourceTree = "<group>"; };
-		47CE8F7A5F30282329EB7AF3 /* Pods_MotionSourceiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotionSourceiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D887C75F73CA040D35C22036 /* Pods-MotionSourceiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotionSourceiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotionSourceiOS/Pods-MotionSourceiOS.release.xcconfig"; sourceTree = "<group>"; };
+		CC2365FE37D47755D07A1D2E /* Pods_MotionSourceiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotionSourceiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE57F287F98715AF1FF45589 /* Pods-MotionSourceiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotionSourceiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotionSourceiOS/Pods-MotionSourceiOS.release.xcconfig"; sourceTree = "<group>"; };
+		F1657FF3AB609B7E1E1FC45F /* Pods-MotionSourceiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotionSourceiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotionSourceiOS/Pods-MotionSourceiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F491FB9D1FA4F0FC005B57A8 /* MotionSourceiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotionSourceiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F491FBA11FA4F0FC005B57A8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F491FBA31FA4F0FC005B57A8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -32,6 +48,7 @@
 		F491FBAC1FA4F0FC005B57A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F491FBAF1FA4F0FC005B57A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F491FBB11FA4F0FC005B57A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F49E1B161FB0B7AF009C2A9C /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = "../../../Library/Developer/Xcode/DerivedData/MotionSourceiOS-hhglvwaiemefkcbdwdpuamncxeaa/Build/Products/Debug-iphoneos/CocoaAsyncSocket/CocoaAsyncSocket.framework"; sourceTree = "<group>"; };
 		F4E83CDE1FA519B400B0BB14 /* PacketHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PacketHandler.m; sourceTree = "<group>"; };
 		F4E83CE01FA519C200B0BB14 /* PacketHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PacketHandler.h; sourceTree = "<group>"; };
 		F4E83CE11FA51CA300B0BB14 /* hexd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hexd.h; sourceTree = "<group>"; };
@@ -43,19 +60,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F408D4951FB0B81B00C0F134 /* CocoaAsyncSocket.framework in Frameworks */,
 				F4E83CE31FA5298400B0BB14 /* libz.tbd in Frameworks */,
-				CD19385CC422B7729C1AA0C7 /* Pods_MotionSourceiOS.framework in Frameworks */,
+				823B317AE5A2FF71B9233C74 /* Pods_MotionSourceiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6BB132DAADFACF69C1107D27 /* Pods */ = {
+		649D9CB65643D8C886E71726 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0ABED0E8C64AEF67B92E9DE3 /* Pods-MotionSourceiOS.debug.xcconfig */,
-				D887C75F73CA040D35C22036 /* Pods-MotionSourceiOS.release.xcconfig */,
+				F1657FF3AB609B7E1E1FC45F /* Pods-MotionSourceiOS.debug.xcconfig */,
+				EE57F287F98715AF1FF45589 /* Pods-MotionSourceiOS.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -63,8 +81,9 @@
 		820F2EB7E2F262AB5B43D0C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F49E1B161FB0B7AF009C2A9C /* CocoaAsyncSocket.framework */,
 				F4E83CE21FA5298400B0BB14 /* libz.tbd */,
-				47CE8F7A5F30282329EB7AF3 /* Pods_MotionSourceiOS.framework */,
+				CC2365FE37D47755D07A1D2E /* Pods_MotionSourceiOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -75,7 +94,7 @@
 				F491FB9F1FA4F0FC005B57A8 /* MotionSourceiOS */,
 				F491FB9E1FA4F0FC005B57A8 /* Products */,
 				820F2EB7E2F262AB5B43D0C6 /* Frameworks */,
-				6BB132DAADFACF69C1107D27 /* Pods */,
+				649D9CB65643D8C886E71726 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,12 +140,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F491FBB41FA4F0FC005B57A8 /* Build configuration list for PBXNativeTarget "MotionSourceiOS" */;
 			buildPhases = (
-				BEBCCD55C1536235A4A0994E /* [CP] Check Pods Manifest.lock */,
+				57B05AB91F9FC4546992DAA8 /* [CP] Check Pods Manifest.lock */,
 				F491FB991FA4F0FC005B57A8 /* Sources */,
 				F491FB9A1FA4F0FC005B57A8 /* Frameworks */,
 				F491FB9B1FA4F0FC005B57A8 /* Resources */,
-				31EEE24681941F8A923DE7AE /* [CP] Embed Pods Frameworks */,
-				63E78E6F4734424C35ED0E3C /* [CP] Copy Pods Resources */,
+				8CF6A57B0ED4A8B202C2EAC5 /* [CP] Embed Pods Frameworks */,
+				F46C63CE00D7849AB134BB86 /* [CP] Copy Pods Resources */,
+				F49E1B151FB0B79C009C2A9C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,7 +205,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		31EEE24681941F8A923DE7AE /* [CP] Embed Pods Frameworks */ = {
+		57B05AB91F9FC4546992DAA8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MotionSourceiOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CF6A57B0ED4A8B202C2EAC5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -203,7 +241,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MotionSourceiOS/Pods-MotionSourceiOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		63E78E6F4734424C35ED0E3C /* [CP] Copy Pods Resources */ = {
+		F46C63CE00D7849AB134BB86 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -216,24 +254,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MotionSourceiOS/Pods-MotionSourceiOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BEBCCD55C1536235A4A0994E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MotionSourceiOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -372,7 +392,7 @@
 		};
 		F491FBB51FA4F0FC005B57A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0ABED0E8C64AEF67B92E9DE3 /* Pods-MotionSourceiOS.debug.xcconfig */;
+			baseConfigurationReference = F1657FF3AB609B7E1E1FC45F /* Pods-MotionSourceiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -395,7 +415,7 @@
 		};
 		F491FBB61FA4F0FC005B57A8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D887C75F73CA040D35C22036 /* Pods-MotionSourceiOS.release.xcconfig */;
+			baseConfigurationReference = EE57F287F98715AF1FF45589 /* Pods-MotionSourceiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
