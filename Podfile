@@ -1,8 +1,8 @@
 platform :ios, '10.0'
 
-target 'GyroTest' do
+target 'MotionSourceiOS' do
   use_frameworks!
 
-  # Pods for GyroTest
+  # Pods for MotionSourceiOS
   pod 'CocoaAsyncSocket'
 end

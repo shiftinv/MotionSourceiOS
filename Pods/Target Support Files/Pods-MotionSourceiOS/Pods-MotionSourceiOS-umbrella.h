@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_GyroTestVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_GyroTestVersionString[];
+FOUNDATION_EXPORT double Pods_MotionSourceiOSVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_MotionSourceiOSVersionString[];
 

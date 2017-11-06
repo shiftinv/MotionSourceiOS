@@ -1,6 +1,6 @@
 //
 //  PacketHandler.h
-//  GyroTest
+//  MotionSourceiOS
 //
 //  Created on 28.10.17.
 //  Copyright © 2017 All rights reserved.
