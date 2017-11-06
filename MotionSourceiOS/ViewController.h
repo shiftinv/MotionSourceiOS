@@ -13,6 +13,7 @@
 @interface ViewController : UIViewController <GCDAsyncUdpSocketDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *portTextField;
+@property (weak, nonatomic) IBOutlet UILabel *ipAddressLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startstopServerButton;
 @property (weak, nonatomic) IBOutlet UISlider *updateIntervalSlider;
 @property (weak, nonatomic) IBOutlet UITextField *updateIntervalTextField;
@@ -36,6 +37,7 @@
 - (IBAction)changeOrientation:(UIButton *)sender;
 - (void)displayErrorWithMessage:(NSString *)message;
 - (void)handleMotionUpdate:(CMDeviceMotion *)motionData withError:(NSError *)error;
+- (NSString *)getIPAddress;
 
 @end
 
