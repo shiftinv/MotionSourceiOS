@@ -96,7 +96,6 @@ typedef NS_ENUM(NSUInteger, MessageType)
     [_sensitivitySlider setValue:sensitivity];
     [_sensitivityTextField setText:[NSString stringWithFormat:@"%d", sensitivity]];
     gyroSensitivity = sensitivity;
-    NSLog(@"%d", sensitivity);
 }
 
 
@@ -109,8 +108,10 @@ typedef NS_ENUM(NSUInteger, MessageType)
     __weak id weakSelf = self;
     [motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
         if(CACurrentMediaTime() > lastReceiveTime + (CLIENT_TIMEOUT_MS / 1000)) {
+            NSLog(@"Client disconnected.");
             lastAddress = nil;
             [weakSelf stopGyroUpdates];
+            return;
         }
         [weakSelf handleMotionUpdate:motion withError:error];
     }];
@@ -162,6 +163,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     
     NSLog(@"Stopping server..");
     [socket close];
+    lastAddress = nil;
     [self stopGyroUpdates];
     [_startstopServerButton setEnabled:false];
     // button waits for delegate method udpSocketDidClose:withError: to be called
@@ -332,7 +334,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     memset(outPtr, 0, 12); // touchpad
     outPtr += 12;
     
-    NSUInteger timestampUS = motionData.timestamp * pow(10, 6);
+    uint64_t timestampUS = motionData.timestamp * pow(10, 6);
     *(uint64_t *)(outPtr) = timestampUS;
     outPtr += 8;
     
@@ -399,8 +401,14 @@ typedef NS_ENUM(NSUInteger, MessageType)
         newClient = true;
     lastAddress = address;
     lastReceiveTime = CACurrentMediaTime();
-    if(newClient)
+    if(newClient) {
         [self startGyroUpdates];
+        
+        NSString *client;
+        uint16_t clientPort;
+        [GCDAsyncUdpSocket getHost:&client port:&clientPort fromAddress:address];
+        NSLog(@"New client: %@:%d", client, clientPort);
+    }
     
     //NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     //hexd(data);
