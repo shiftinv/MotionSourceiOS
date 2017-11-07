@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "GCDAsyncUdpSocket.h"
+#import <CocoaAsyncSocket/GCDAsyncUdpSocket.h>
 
 @interface ViewController : UIViewController <GCDAsyncUdpSocketDelegate, UITextFieldDelegate>
 
