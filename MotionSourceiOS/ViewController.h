@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *updateIntervalTextField;
 @property (weak, nonatomic) IBOutlet UISlider *sensitivitySlider;
 @property (weak, nonatomic) IBOutlet UITextField *sensitivityTextField;
+@property (weak, nonatomic) IBOutlet UILabel *warningLabel;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *orientationButtons;
 

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -202,12 +201,20 @@
                                     <constraint firstAttribute="height" constant="1" id="hcX-M8-uzg"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⚠️ Warning! The gyroscope does not work well with this orientation!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c93-Pb-uuO">
+                                <rect key="frame" x="20" y="537" width="335" height="41"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="0.24764554794520549" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MQK-ap-IwB" firstAttribute="top" secondItem="VTD-6I-TcW" secondAttribute="bottom" constant="12" id="0Ms-Wi-uPJ"/>
                             <constraint firstItem="pGa-Lt-SA6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="1EY-Ir-0u1"/>
                             <constraint firstItem="Gua-QS-o39" firstAttribute="leading" secondItem="Z2g-Ef-Yjo" secondAttribute="trailing" constant="8" id="1mG-Iz-g1i"/>
+                            <constraint firstItem="c93-Pb-uuO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="1vj-8k-NQF"/>
                             <constraint firstItem="VTD-6I-TcW" firstAttribute="top" secondItem="z5g-zi-A53" secondAttribute="bottom" constant="12" id="2WW-yH-Deu"/>
                             <constraint firstItem="Z2g-Ef-Yjo" firstAttribute="leading" secondItem="VpB-Sx-BaG" secondAttribute="trailing" constant="8" id="2YK-Hr-cs7"/>
                             <constraint firstItem="02o-T7-oSj" firstAttribute="top" secondItem="75A-ch-Pmh" secondAttribute="bottom" constant="20" id="2f8-1h-RKn"/>
@@ -225,6 +232,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="MQK-ap-IwB" secondAttribute="trailing" constant="4" id="P4d-bT-P2H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IlJ-Bk-iF1" secondAttribute="trailing" constant="4" id="S5B-wh-Fmo"/>
                             <constraint firstItem="M2C-LG-D8B" firstAttribute="leading" secondItem="wLL-pu-yoO" secondAttribute="trailing" constant="20" id="TOF-Rk-gTz"/>
+                            <constraint firstItem="c93-Pb-uuO" firstAttribute="top" secondItem="HZ4-Tp-ehh" secondAttribute="bottom" constant="12" id="Tbw-Cn-JyF"/>
                             <constraint firstItem="IlJ-Bk-iF1" firstAttribute="leading" secondItem="5Qk-2k-GnI" secondAttribute="trailing" constant="20" id="WHp-YG-KRZ"/>
                             <constraint firstItem="5Qk-2k-GnI" firstAttribute="top" secondItem="oHt-Kg-TMH" secondAttribute="bottom" constant="12" id="WMx-ix-THH"/>
                             <constraint firstItem="z5g-zi-A53" firstAttribute="top" secondItem="02o-T7-oSj" secondAttribute="bottom" constant="12" id="Xlv-nA-DBI"/>
@@ -236,6 +244,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="75A-ch-Pmh" secondAttribute="trailing" constant="4" id="eg2-7p-nYy"/>
                             <constraint firstItem="75A-ch-Pmh" firstAttribute="top" secondItem="MnF-Xd-Fog" secondAttribute="bottom" constant="12" id="fIz-xa-2O3"/>
                             <constraint firstItem="wLL-pu-yoO" firstAttribute="top" secondItem="Z2g-Ef-Yjo" secondAttribute="bottom" constant="12" id="h0y-ev-nFo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="c93-Pb-uuO" secondAttribute="trailing" constant="4" id="hM6-U3-AIl"/>
                             <constraint firstItem="Z2g-Ef-Yjo" firstAttribute="centerY" secondItem="VpB-Sx-BaG" secondAttribute="centerY" id="hRV-28-XX3"/>
                             <constraint firstItem="R4V-x6-jJN" firstAttribute="leading" secondItem="z5g-zi-A53" secondAttribute="trailing" constant="20" id="hf9-PD-sbJ"/>
                             <constraint firstItem="oHt-Kg-TMH" firstAttribute="top" secondItem="DCx-3j-nId" secondAttribute="bottom" constant="20" id="hzk-E7-dzO"/>
@@ -261,6 +270,7 @@
                         <outlet property="startstopServerButton" destination="bTT-eu-5Nk" id="0b2-zB-Zh8"/>
                         <outlet property="updateIntervalSlider" destination="5Qk-2k-GnI" id="AGw-c1-8Aa"/>
                         <outlet property="updateIntervalTextField" destination="IlJ-Bk-iF1" id="kXo-vi-kOA"/>
+                        <outlet property="warningLabel" destination="c93-Pb-uuO" id="F8I-aD-Jaq"/>
                         <outletCollection property="orientationButtons" destination="f7q-EJ-vvk" id="I1A-hT-MFi"/>
                         <outletCollection property="orientationButtons" destination="9Xl-kq-Kbv" id="Hq9-j8-LAj"/>
                         <outletCollection property="orientationButtons" destination="Aei-QH-TBs" id="8Y1-eE-Gvk"/>

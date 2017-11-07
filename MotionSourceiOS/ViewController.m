@@ -75,7 +75,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     [_startstopServerButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [_startstopServerButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     for(UIButton *button in _orientationButtons) {
-        if(button.tag == 0) { // only runs for the first (portrait) button
+        if(button.tag == 1) { // only runs for the first (portrait) button
             [self changeOrientation:button];
         }
         [button setBackgroundColor:[UIColor colorWithWhite:0.85f alpha:1.0f]];
@@ -243,15 +243,19 @@ typedef NS_ENUM(NSUInteger, MessageType)
     switch(sender.tag) {
         case 0:
             orientation = UIDeviceOrientationPortrait;
+            [_warningLabel setHidden:false];
             break;
         case 1:
             orientation = UIDeviceOrientationLandscapeRight;
+            [_warningLabel setHidden:true];
             break;
         case 2:
             orientation = UIDeviceOrientationPortraitUpsideDown;
+            [_warningLabel setHidden:false];
             break;
         case 3:
             orientation = UIDeviceOrientationLandscapeLeft;
+            [_warningLabel setHidden:true];
             break;
     }
 }
