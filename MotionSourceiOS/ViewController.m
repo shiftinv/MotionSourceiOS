@@ -80,6 +80,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
         }
         [button setBackgroundColor:[UIColor colorWithWhite:0.85f alpha:1.0f]];
         [button.layer setCornerRadius:12.0f];
+        [button.layer setBorderColor:[[UIColor darkGrayColor] CGColor]];
     }
 }
 
