@@ -82,6 +82,11 @@ typedef NS_ENUM(NSUInteger, MessageType)
         [button.layer setCornerRadius:12.0f];
         [button.layer setBorderColor:[[UIColor darkGrayColor] CGColor]];
     }
+    
+    NSString *versionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString *buildString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    NSString *versionBuildString = [NSString stringWithFormat:@"v%@ (%@)", versionString, buildString];
+    [_versionLabel setText:versionBuildString];
 }
 
 

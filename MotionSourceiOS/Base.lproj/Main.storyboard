@@ -201,6 +201,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyc-xH-ynt">
+                                <rect key="frame" x="20" y="646" width="335" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -231,9 +237,12 @@
                             <constraint firstItem="z5g-zi-A53" firstAttribute="top" secondItem="02o-T7-oSj" secondAttribute="bottom" constant="12" id="Xlv-nA-DBI"/>
                             <constraint firstItem="M2C-LG-D8B" firstAttribute="centerY" secondItem="wLL-pu-yoO" secondAttribute="centerY" id="YYe-E0-Kg1"/>
                             <constraint firstItem="VpB-Sx-BaG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="YZc-TX-phj"/>
+                            <constraint firstItem="uyc-xH-ynt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="YcS-Ny-9vr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DCx-3j-nId" secondAttribute="trailing" constant="4" id="ZqS-3P-iBS"/>
                             <constraint firstItem="z5g-zi-A53" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="aoP-dg-VzD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uyc-xH-ynt" secondAttribute="bottom" constant="4" id="dGa-sD-qRs"/>
                             <constraint firstItem="DCx-3j-nId" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="dxo-s0-UK5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uyc-xH-ynt" secondAttribute="trailing" constant="4" id="eGJ-UX-wwq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="75A-ch-Pmh" secondAttribute="trailing" constant="4" id="eg2-7p-nYy"/>
                             <constraint firstItem="75A-ch-Pmh" firstAttribute="top" secondItem="MnF-Xd-Fog" secondAttribute="bottom" constant="12" id="fIz-xa-2O3"/>
                             <constraint firstItem="wLL-pu-yoO" firstAttribute="top" secondItem="Z2g-Ef-Yjo" secondAttribute="bottom" constant="12" id="h0y-ev-nFo"/>
@@ -263,6 +272,7 @@
                         <outlet property="startstopServerButton" destination="bTT-eu-5Nk" id="0b2-zB-Zh8"/>
                         <outlet property="updateIntervalSlider" destination="5Qk-2k-GnI" id="AGw-c1-8Aa"/>
                         <outlet property="updateIntervalTextField" destination="IlJ-Bk-iF1" id="kXo-vi-kOA"/>
+                        <outlet property="versionLabel" destination="uyc-xH-ynt" id="Qt4-pO-TFG"/>
                         <outlet property="warningLabel" destination="c93-Pb-uuO" id="F8I-aD-Jaq"/>
                         <outletCollection property="orientationButtons" destination="f7q-EJ-vvk" id="I1A-hT-MFi"/>
                         <outletCollection property="orientationButtons" destination="9Xl-kq-Kbv" id="Hq9-j8-LAj"/>
