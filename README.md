@@ -1,15 +1,14 @@
 # MotionSourceiOS
-iOS App to provide gyroscope data to Cemu
+iOS App providing gyroscope data to Cemu
 
 ---
 
 # Installation
 
 1. Jailbroken
-   * Install the ipa via *Filza* or *iFile*
-2. Non-Jailbroken
-   * Take a look over at /r/sideloaded (specifically, [this wiki page](https://www.reddit.com/r/sideloaded/wiki/ipasigning)) on how to use *Cydia Impactor* to install ipas to your device (This also works with a non-paid developer account, which means that everyone can use it)
-   * (**tl;dr** download & open *Cydia Impactor* on your preferred desktop operating system, drag-n-drop the ipa onto the window, input your Apple ID and password, wait a few seconds, and... well, that's it)
+   * Install the ipa via *Filza*/*iFile*/*appinst*/etc.
+2. Non-Jailbroken (requires a macOS device/VM)
+   * Take a look over at /r/sideloaded (specifically, [this wiki page](https://old.reddit.com/r/sideloaded/wiki/ipasigning)) on how to use *iOS App Signer* to install ipas to your device (this also works with a free developer account)
 
 # Setup
 
