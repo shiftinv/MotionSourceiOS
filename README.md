@@ -12,7 +12,7 @@ iOS App providing gyroscope data to Cemu
 
 # Setup
 
-1. Install [Cemuhook](https://sshnuke.net/cemuhook/) if you haven't already
+1. Install [Cemuhook](https://cemuhook.sshnuke.net/) if you haven't already
 2. Add `serverIP = [YOUR IOS DEVICE'S IP HERE]` under the [Input] section of *cemuhook.ini* (This file is located in Cemu's main directory)
    * *Optional: If you changed the port in the app, add `serverPort = [YOUR PORT]` below the previously added line*
 3. Save + close cemuhook.ini, start up Cemu
