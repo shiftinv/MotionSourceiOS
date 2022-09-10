@@ -6,9 +6,10 @@ iOS App providing gyroscope data to Cemu
 # Installation
 
 1. Jailbroken
-   * Install the ipa via *Filza*/*iFile*/*appinst*/etc.
-2. Non-Jailbroken (requires a macOS device/VM)
-   * Take a look over at /r/sideloaded (specifically, [this wiki page](https://old.reddit.com/r/sideloaded/wiki/ipasigning)) on how to use *iOS App Signer* to install ipas to your device (this also works with a free developer account)
+   * Install the ipa via Filza/iFile/appinst/etc.
+2. Non-Jailbroken
+   * Use [AltStore](https://altstore.io/)
+   * **or:** (requires a macOS device/VM) Take a look over at /r/sideloaded (specifically, [this wiki page](https://old.reddit.com/r/sideloaded/wiki/ipasigning)) on how to use *iOS App Signer* to install ipas to your device (this also works with a free developer account)
 
 # Setup
 
