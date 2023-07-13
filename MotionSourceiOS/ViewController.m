@@ -348,10 +348,8 @@ typedef NS_ENUM(NSUInteger, MessageType)
     *(uint64_t *)(outPtr) = timestampUS;
     outPtr += 8;
     
-    memset(outPtr, 0, 12); // accelerometer
-    outPtr += 12;
-    
     float pitchDelta, rollDelta, yawDelta;
+    float accelX, accelY, accelZ;
     if(lastMotionData) {
         pitchDelta = motionData.attitude.pitch - lastMotionData.attitude.pitch;
         rollDelta = motionData.attitude.roll - lastMotionData.attitude.roll;
@@ -361,6 +359,17 @@ typedef NS_ENUM(NSUInteger, MessageType)
         rollDelta = motionData.attitude.roll;
         yawDelta = motionData.attitude.yaw;
     }
+    accelX = motionData.userAcceleration.x;
+    accelY = motionData.userAcceleration.y;
+    accelZ = motionData.userAcceleration.z;
+    
+    *(uint32_t *)(outPtr) = *(uint32_t *)&accelX;
+    outPtr += 4;
+    *(uint32_t *)(outPtr) = *(uint32_t *)&accelY;
+    outPtr += 4;
+    *(uint32_t *)(outPtr) = *(uint32_t *)&accelZ;
+    outPtr += 4;
+    
     pitchDelta = radtodeg(pitchDelta) * gyroSensitivity;
     rollDelta = radtodeg(rollDelta) * gyroSensitivity;
     yawDelta = radtodeg(yawDelta) * gyroSensitivity;
