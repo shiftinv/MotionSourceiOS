@@ -63,7 +63,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     
     // ** Gyroscope **
     
-    [self setGyroSensitivity:8];
+    [self setGyroSensitivity:1];
     [self setUpdatesPerSec:10];
     
     
@@ -79,7 +79,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
         }
         [button setBackgroundColor:[UIColor colorWithWhite:0.85f alpha:1.0f]];
         [button.layer setCornerRadius:12.0f];
-        [button.layer setBorderColor:[[UIColor darkGrayColor] CGColor]];
+        [button.layer setBorderColor:[[UIColor systemBlueColor] CGColor]];
     }
     
     NSString *versionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
@@ -248,19 +248,15 @@ typedef NS_ENUM(NSUInteger, MessageType)
     switch(sender.tag) {
         case 0:
             orientation = UIDeviceOrientationPortrait;
-            [_warningLabel setHidden:false];
             break;
         case 1:
             orientation = UIDeviceOrientationLandscapeRight;
-            [_warningLabel setHidden:true];
             break;
         case 2:
             orientation = UIDeviceOrientationPortraitUpsideDown;
-            [_warningLabel setHidden:false];
             break;
         case 3:
             orientation = UIDeviceOrientationLandscapeLeft;
-            [_warningLabel setHidden:true];
             break;
     }
 }
