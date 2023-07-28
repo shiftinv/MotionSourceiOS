@@ -41,7 +41,6 @@ typedef NS_ENUM(NSUInteger, MessageType)
     
     // ** Gyroscope **
     CMMotionManager *motionManager;
-    CMDeviceMotion *lastMotionData;
     float gyroSensitivity;
     int updatesPerSec;
     UIDeviceOrientation orientation;
@@ -351,45 +350,37 @@ typedef NS_ENUM(NSUInteger, MessageType)
     memset(outPtr, 0, 12); // accelerometer
     outPtr += 12;
     
-    float pitchDelta, rollDelta, yawDelta;
-    if(lastMotionData) {
-        pitchDelta = motionData.attitude.pitch - lastMotionData.attitude.pitch;
-        rollDelta = motionData.attitude.roll - lastMotionData.attitude.roll;
-        yawDelta = motionData.attitude.yaw - lastMotionData.attitude.yaw;
-    } else {
-        pitchDelta = motionData.attitude.pitch;
-        rollDelta = motionData.attitude.roll;
-        yawDelta = motionData.attitude.yaw;
-    }
-    pitchDelta = radtodeg(pitchDelta) * gyroSensitivity;
-    rollDelta = radtodeg(rollDelta) * gyroSensitivity;
-    yawDelta = radtodeg(yawDelta) * gyroSensitivity;
+    CMRotationRate gyro = motionData.rotationRate;
     
     float xDelta, yDelta, zDelta;
     switch(orientation) {
         case UIDeviceOrientationPortrait:
-            xDelta = pitchDelta;
-            yDelta = -yawDelta;
-            zDelta = rollDelta;
+            xDelta = gyro.x;
+            yDelta = -gyro.z;
+            zDelta = gyro.y;
             break;
         case UIDeviceOrientationLandscapeRight:
-            xDelta = rollDelta;
-            yDelta = -yawDelta;
-            zDelta = -pitchDelta;
+            xDelta = gyro.y;
+            yDelta = -gyro.z;
+            zDelta = -gyro.x;
             break;
         case UIDeviceOrientationPortraitUpsideDown:
-            xDelta = -pitchDelta;
-            yDelta = -yawDelta;
-            zDelta = -rollDelta;
+            xDelta = -gyro.x;
+            yDelta = -gyro.z;
+            zDelta = -gyro.y;
             break;
         case UIDeviceOrientationLandscapeLeft:
-            xDelta = -rollDelta;
-            yDelta = -yawDelta;
-            zDelta = pitchDelta;
+            xDelta = -gyro.y;
+            yDelta = -gyro.z;
+            zDelta = gyro.x;
             break;
         default:    // just to silence xcode warnings, this should never run
             return;
     }
+    
+    xDelta = radtodeg(xDelta) * gyroSensitivity;
+    yDelta = radtodeg(yDelta) * gyroSensitivity;
+    zDelta = radtodeg(zDelta) * gyroSensitivity;
     
     *(uint32_t *)(outPtr) = *(uint32_t *)&xDelta;
     outPtr += 4;
@@ -398,8 +389,6 @@ typedef NS_ENUM(NSUInteger, MessageType)
     *(uint32_t *)(outPtr) = *(uint32_t *)&zDelta;
     outPtr += 4;
     
-    
-    lastMotionData = motionData;
     
     [PacketHandler sendPacket:[NSData dataWithBytes:outputData length:sizeof(outputData)] toAddress:lastAddress fromSocket:socket];
 }
