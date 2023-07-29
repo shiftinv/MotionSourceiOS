@@ -63,6 +63,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="[IP]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="M2C-LG-D8B">
+                                <rect key="frame" x="117.5" y="90" width="215.5" height="18"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xF-88-5bG" userLabel="Connection Indicator">
                                 <rect key="frame" x="345" y="94" width="10" height="10"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
@@ -118,6 +124,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQK-Gn-3Ct" userLabel="Accelerometer Info">
+                                <rect key="frame" x="178" y="276" width="50" height="34"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="accelerometerInfoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HXn-w2-W9d"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EJt-F1-Yz2" userLabel="Accelerometer Switch">
+                                <rect key="frame" x="306" y="277.5" width="51" height="31"/>
+                                <connections>
+                                    <action selector="enableAccelerometerSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="E8H-mr-unI"/>
+                                </connections>
+                            </switch>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQK-ap-IwB" userLabel="Separator View">
                                 <rect key="frame" x="20" y="322" width="335" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -182,31 +201,12 @@
                                     <constraint firstItem="9Xl-kq-Kbv" firstAttribute="width" secondItem="HZ4-Tp-ehh" secondAttribute="width" multiplier="0.22" id="otW-RP-E0G"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="[IP]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="M2C-LG-D8B">
-                                <rect key="frame" x="117.5" y="90" width="215.5" height="18"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[version]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyc-xH-ynt">
-                                <rect key="frame" x="20" y="646" width="335" height="17"/>
+                                <rect key="frame" x="12" y="646" width="57.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EJt-F1-Yz2">
-                                <rect key="frame" x="306" y="277.5" width="51" height="31"/>
-                                <connections>
-                                    <action selector="enableAccelerometerSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="E8H-mr-unI"/>
-                                </connections>
-                            </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQK-Gn-3Ct">
-                                <rect key="frame" x="178" y="276" width="50" height="34"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
-                                <connections>
-                                    <action selector="accelerometerInfoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HXn-w2-W9d"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
