@@ -1,11 +1,3 @@
-//
-//  hexd.h
-//  MotionSourceiOS
-//
-//  Created on 28.10.17.
-//  Copyright © 2017 All rights reserved.
-//
-
 #ifndef _hexd_h
 #define _hexd_h
 

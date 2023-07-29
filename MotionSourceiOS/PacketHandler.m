@@ -1,11 +1,3 @@
-//
-//  PacketHandler.m
-//  MotionSourceiOS
-//
-//  Created on 28.10.17.
-//  Copyright © 2017 All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 #import <zlib.h>
 
