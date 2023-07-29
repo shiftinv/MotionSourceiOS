@@ -42,11 +42,17 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTT-eu-5Nk">
-                                <rect key="frame" x="177" y="42" width="178" height="38"/>
+                                <rect key="frame" x="189" y="41.5" width="150" height="39.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Start Server">
-                                    <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" systemColor="systemGreenColor"/>
                                 </state>
+                                <buttonConfiguration key="configuration" style="tinted" title="Start Server" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="21"/>
+                                    <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                                    <color key="baseBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="startstopServer" destination="BYZ-38-t0r" eventType="touchUpInside" id="elE-ZZ-K91"/>
                                 </connections>
@@ -57,8 +63,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gyroscope Update Interval (updates/s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHt-Kg-TMH">
-                                <rect key="frame" x="20" y="149" width="266" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Interval (updates/s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHt-Kg-TMH">
+                                <rect key="frame" x="20" y="149" width="187.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -195,7 +201,7 @@
                                     <constraint firstAttribute="height" constant="1" id="hcX-M8-uzg"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyc-xH-ynt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[version]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyc-xH-ynt">
                                 <rect key="frame" x="20" y="646" width="335" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
@@ -215,7 +221,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="M2C-LG-D8B" secondAttribute="trailing" constant="40" id="86C-W5-Tta"/>
                             <constraint firstItem="Gua-QS-o39" firstAttribute="centerY" secondItem="Z2g-Ef-Yjo" secondAttribute="centerY" id="8rZ-gD-s51"/>
                             <constraint firstItem="02o-T7-oSj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="BIU-oU-aoo"/>
-                            <constraint firstItem="bTT-eu-5Nk" firstAttribute="leading" secondItem="Gua-QS-o39" secondAttribute="trailing" constant="8" id="BVx-VM-DJd"/>
+                            <constraint firstItem="bTT-eu-5Nk" firstAttribute="leading" secondItem="Gua-QS-o39" secondAttribute="trailing" constant="20" id="BVx-VM-DJd"/>
                             <constraint firstItem="MnF-Xd-Fog" firstAttribute="top" secondItem="5Qk-2k-GnI" secondAttribute="bottom" constant="12" id="GGB-lu-Crp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="R4V-x6-jJN" secondAttribute="trailing" constant="4" id="Hzg-ic-pOl"/>
                             <constraint firstItem="HZ4-Tp-ehh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="12" id="KAq-ju-JMm"/>
@@ -251,7 +257,7 @@
                             <constraint firstItem="5Qk-2k-GnI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="pMR-HN-WyZ"/>
                             <constraint firstItem="75A-ch-Pmh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="qRu-vX-Kz1"/>
                             <constraint firstItem="pGa-Lt-SA6" firstAttribute="top" secondItem="MQK-ap-IwB" secondAttribute="bottom" constant="20" id="v7G-hm-GvL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bTT-eu-5Nk" secondAttribute="trailing" constant="4" id="v8T-9K-7hP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bTT-eu-5Nk" secondAttribute="trailing" constant="20" id="v8T-9K-7hP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HZ4-Tp-ehh" secondAttribute="trailing" constant="12" id="zYa-ta-zBi"/>
                         </constraints>
                     </view>
@@ -285,6 +291,9 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

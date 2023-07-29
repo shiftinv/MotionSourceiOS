@@ -71,8 +71,9 @@ typedef NS_ENUM(NSUInteger, MessageType)
     [_ipAddressLabel setText:[self getIPAddress]];
     [_portTextField setText:[NSString stringWithFormat:@"%d", port]];
     [_portTextField setDelegate:self];
-    [_startstopServerButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [_startstopServerButton setTitleColor:[UIColor systemGreenColor] forState:UIControlStateNormal];
     [_startstopServerButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+    [_startstopServerButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     for(UIButton *button in _orientationButtons) {
         if(button.tag == 1) { // only runs for the first (portrait) button
             [self changeOrientation:button];
