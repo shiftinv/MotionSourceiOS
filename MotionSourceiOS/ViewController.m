@@ -350,39 +350,39 @@ typedef NS_ENUM(NSUInteger, MessageType)
     CMRotationRate gyro = motionData.rotationRate;
     
     float accelX, accelY, accelZ;
-    float xDelta, yDelta, zDelta;
+    float gyroX, gyroY, gyroZ;
     switch(orientation) {
         case UIDeviceOrientationPortrait:
             accelX = acc.x;
             accelY = acc.z;
             accelZ = -acc.y;
-            xDelta = gyro.x;
-            yDelta = -gyro.z;
-            zDelta = gyro.y;
+            gyroX = gyro.x;
+            gyroY = -gyro.z;
+            gyroZ = gyro.y;
             break;
         case UIDeviceOrientationLandscapeRight:
             accelX = acc.y;
             accelY = acc.z;
             accelZ = acc.x;
-            xDelta = gyro.y;
-            yDelta = -gyro.z;
-            zDelta = -gyro.x;
+            gyroX = gyro.y;
+            gyroY = -gyro.z;
+            gyroZ = -gyro.x;
             break;
         case UIDeviceOrientationPortraitUpsideDown:
             accelX = -acc.x;
             accelY = acc.z;
             accelZ = acc.y;
-            xDelta = -gyro.x;
-            yDelta = -gyro.z;
-            zDelta = -gyro.y;
+            gyroX = -gyro.x;
+            gyroY = -gyro.z;
+            gyroZ = -gyro.y;
             break;
         case UIDeviceOrientationLandscapeLeft:
             accelX = -acc.y;
             accelY = acc.z;
             accelZ = -acc.x;
-            xDelta = -gyro.y;
-            yDelta = -gyro.z;
-            zDelta = gyro.x;
+            gyroX = -gyro.y;
+            gyroY = -gyro.z;
+            gyroZ = gyro.x;
             break;
         default:    // just to silence xcode warnings, this should never run
             return;
@@ -397,15 +397,15 @@ typedef NS_ENUM(NSUInteger, MessageType)
     outPtr += 4;
     
     // gyro
-    xDelta = radtodeg(xDelta) * gyroSensitivity;
-    yDelta = radtodeg(yDelta) * gyroSensitivity;
-    zDelta = radtodeg(zDelta) * gyroSensitivity;
+    gyroX = radtodeg(gyroX) * gyroSensitivity;
+    gyroY = radtodeg(gyroY) * gyroSensitivity;
+    gyroZ = radtodeg(gyroZ) * gyroSensitivity;
     
-    *(uint32_t *)(outPtr) = *(uint32_t *)&xDelta;
+    *(uint32_t *)(outPtr) = *(uint32_t *)&gyroX;
     outPtr += 4;
-    *(uint32_t *)(outPtr) = *(uint32_t *)&yDelta;
+    *(uint32_t *)(outPtr) = *(uint32_t *)&gyroY;
     outPtr += 4;
-    *(uint32_t *)(outPtr) = *(uint32_t *)&zDelta;
+    *(uint32_t *)(outPtr) = *(uint32_t *)&gyroZ;
     outPtr += 4;
     
     
