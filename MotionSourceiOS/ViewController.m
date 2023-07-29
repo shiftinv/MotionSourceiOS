@@ -64,7 +64,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     // ** Gyroscope **
     
     [self setGyroSensitivity:1];
-    [self setUpdatesPerSec:10];
+    [self setUpdatesPerSec:50];
     
     
     // ** UI **
