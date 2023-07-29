@@ -9,14 +9,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *startstopServerButton;
 @property (weak, nonatomic) IBOutlet UISlider *updateIntervalSlider;
 @property (weak, nonatomic) IBOutlet UITextField *updateIntervalTextField;
-@property (weak, nonatomic) IBOutlet UISlider *sensitivitySlider;
-@property (weak, nonatomic) IBOutlet UITextField *sensitivityTextField;
 @property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *orientationButtons;
 
 - (void)setUpdatesPerSec:(int)ups;
-- (void)setGyroSensitivity:(int)sensitivity;
 - (void)startGyroUpdates;
 - (void)stopGyroUpdates;
 - (void)startServer;
@@ -25,9 +22,9 @@
 - (IBAction)setPortPressed:(id)sender;
 - (IBAction)intervalSliderChanged:(id)sender;
 - (IBAction)setIntervalPressed:(id)sender;
-- (IBAction)sensitivitySliderChanged:(id)sender;
-- (IBAction)setSensitivityPressed:(id)sender;
 - (IBAction)changeOrientation:(UIButton *)sender;
+- (IBAction)enableAccelerometerSwitch:(UISwitch *)sender;
+- (IBAction)accelerometerInfoPressed:(UIButton *)sender;
 - (void)displayErrorWithMessage:(NSString *)message;
 - (void)handleMotionUpdate:(CMDeviceMotion *)motionData withError:(NSError *)error;
 - (NSString *)getIPAddress;

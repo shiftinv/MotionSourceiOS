@@ -33,7 +33,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     
     // ** Gyroscope **
     CMMotionManager *motionManager;
-    float gyroSensitivity;
+    bool accelerometerEnabled;
     int updatesPerSec;
     UIDeviceOrientation orientation;
 }
@@ -55,11 +55,12 @@ typedef NS_ENUM(NSUInteger, MessageType)
     
     // ** Gyroscope **
     
-    [self setGyroSensitivity:1];
+    accelerometerEnabled = true;
     [self setUpdatesPerSec:50];
     
     
     // ** UI **
+    
     [_ipAddressLabel setText:[self getIPAddress]];
     [_portTextField setText:[NSString stringWithFormat:@"%d", port]];
     [_portTextField setDelegate:self];
@@ -88,12 +89,6 @@ typedef NS_ENUM(NSUInteger, MessageType)
     updatesPerSec = ups;
     if(motionManager)
         [motionManager setDeviceMotionUpdateInterval:(1.0 / updatesPerSec)];
-}
-
-- (void)setGyroSensitivity:(int)sensitivity {
-    [_sensitivitySlider setValue:sensitivity];
-    [_sensitivityTextField setText:[NSString stringWithFormat:@"%d", sensitivity]];
-    gyroSensitivity = sensitivity;
 }
 
 
@@ -212,25 +207,6 @@ typedef NS_ENUM(NSUInteger, MessageType)
     }
 }
 
-- (IBAction)sensitivitySliderChanged:(id)sender {
-    int intValue = (int)_sensitivitySlider.value;
-    NSString *valueText = [NSString stringWithFormat:@"%d", intValue];
-    [_sensitivityTextField setText:valueText];
-}
-
-- (IBAction)setSensitivityPressed:(id)sender {
-    if([_sensitivityTextField hasText]
-       && [[_sensitivityTextField text] intValue] >= _sensitivitySlider.minimumValue
-       && [[_sensitivityTextField text] intValue] <= _sensitivitySlider.maximumValue) {
-        int intValue = [[_sensitivityTextField text] intValue];
-        [self setGyroSensitivity:intValue];
-        [self.view endEditing:true];
-    } else {
-        NSString *errorMessage = [NSString stringWithFormat:@"The sensitivity must be in the range %d-%d", (int)_sensitivitySlider.minimumValue, (int)_sensitivitySlider.maximumValue];
-        [self displayErrorWithMessage:errorMessage];
-    }
-}
-
 - (IBAction)changeOrientation:(UIButton *)sender {
     for(UIButton *button in _orientationButtons) {
         if(button == sender)
@@ -259,6 +235,18 @@ typedef NS_ENUM(NSUInteger, MessageType)
     UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Error" message:message preferredStyle:UIAlertControllerStyleAlert];
     [controller addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
     [self presentViewController:controller animated:true completion:nil];
+}
+
+
+- (IBAction)enableAccelerometerSwitch:(UISwitch *)sender {
+    accelerometerEnabled = sender.isOn;
+}
+
+
+- (IBAction)accelerometerInfoPressed:(UIButton *)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Accelerometer Usage" message:@"This generally helps counteract gyroscope drift. Some applications require accelerometer data to be provided." preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alert animated:true completion:nil];
 }
 
 
@@ -382,6 +370,10 @@ typedef NS_ENUM(NSUInteger, MessageType)
     }
     
     // accelerometer
+    if (!accelerometerEnabled) {
+        accelX = accelY = accelZ = 0;
+    }
+    
     *(uint32_t *)(outPtr) = *(uint32_t *)&accelX;
     outPtr += 4;
     *(uint32_t *)(outPtr) = *(uint32_t *)&accelY;
@@ -390,9 +382,9 @@ typedef NS_ENUM(NSUInteger, MessageType)
     outPtr += 4;
     
     // gyro
-    gyroX = radtodeg(gyroX) * gyroSensitivity;
-    gyroY = radtodeg(gyroY) * gyroSensitivity;
-    gyroZ = radtodeg(gyroZ) * gyroSensitivity;
+    gyroX = radtodeg(gyroX);
+    gyroY = radtodeg(gyroY);
+    gyroZ = radtodeg(gyroZ);
     
     *(uint32_t *)(outPtr) = *(uint32_t *)&gyroX;
     outPtr += 4;
