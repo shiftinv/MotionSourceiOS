@@ -33,7 +33,6 @@
 		F491FBB11FA4F0FC005B57A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4E83CDE1FA519B400B0BB14 /* PacketHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PacketHandler.m; sourceTree = "<group>"; };
 		F4E83CE01FA519C200B0BB14 /* PacketHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PacketHandler.h; sourceTree = "<group>"; };
-		F4E83CE11FA51CA300B0BB14 /* hexd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hexd.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +91,6 @@
 				F491FBA71FA4F0FC005B57A8 /* ViewController.m */,
 				F4E83CE01FA519C200B0BB14 /* PacketHandler.h */,
 				F4E83CDE1FA519B400B0BB14 /* PacketHandler.m */,
-				F4E83CE11FA51CA300B0BB14 /* hexd.h */,
 				F491FBA91FA4F0FC005B57A8 /* Main.storyboard */,
 				F491FBAC1FA4F0FC005B57A8 /* Assets.xcassets */,
 				F491FBAE1FA4F0FC005B57A8 /* LaunchScreen.storyboard */,

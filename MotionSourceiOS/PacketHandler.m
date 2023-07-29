@@ -2,7 +2,6 @@
 #import <zlib.h>
 
 #import "PacketHandler.h"
-#import "hexd.h"
 
 #define SERVERID 53473400
 
@@ -10,17 +9,12 @@
 @implementation PacketHandler
 
 + (void)sendPacket:(NSData *)data toAddress:(NSData *)address fromSocket:(GCDAsyncUdpSocket *)socket {
-    hexd(data);
     NSUInteger capacity = 16 + data.length;
     NSMutableData *packet = [NSMutableData dataWithCapacity:capacity];
     
-    hexd(packet);
     [self beginPacket:packet withDataLength:capacity];
-    hexd(packet);
     [packet appendData:data];
-    hexd(packet);
     [self finishPacket:packet];
-    hexd(packet);
     
     [socket sendData:packet toAddress:address withTimeout:-1 tag:0];
 }

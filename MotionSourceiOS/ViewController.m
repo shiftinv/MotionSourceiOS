@@ -5,7 +5,6 @@
 
 #import "ViewController.h"
 #import "PacketHandler.h"
-#import "hexd.h"
 
 #define radtodeg(x) (x * 180.0 / M_PI)
 
@@ -422,8 +421,6 @@ typedef NS_ENUM(NSUInteger, MessageType)
         NSLog(@"New client: %@:%d", client, clientPort);
     }
     
-    //NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    //hexd(data);
     const unsigned char *bufPtr = [data bytes];
     
     if(strncmp((const char *)bufPtr, "DSUC", 4) != 0)
