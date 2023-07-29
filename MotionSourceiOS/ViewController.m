@@ -343,29 +343,43 @@ typedef NS_ENUM(NSUInteger, MessageType)
     *(uint64_t *)(outPtr) = timestampUS;
     outPtr += 8;
     
-    memset(outPtr, 0, 12); // accelerometer
-    outPtr += 12;
-    
+    CMAcceleration acc = motionData.userAcceleration;
+    acc.x += motionData.gravity.x;
+    acc.y += motionData.gravity.y;
+    acc.z += motionData.gravity.z;
     CMRotationRate gyro = motionData.rotationRate;
     
+    float accelX, accelY, accelZ;
     float xDelta, yDelta, zDelta;
     switch(orientation) {
         case UIDeviceOrientationPortrait:
+            accelX = acc.x;
+            accelY = acc.z;
+            accelZ = -acc.y;
             xDelta = gyro.x;
             yDelta = -gyro.z;
             zDelta = gyro.y;
             break;
         case UIDeviceOrientationLandscapeRight:
+            accelX = acc.y;
+            accelY = acc.z;
+            accelZ = acc.x;
             xDelta = gyro.y;
             yDelta = -gyro.z;
             zDelta = -gyro.x;
             break;
         case UIDeviceOrientationPortraitUpsideDown:
+            accelX = -acc.x;
+            accelY = acc.z;
+            accelZ = acc.y;
             xDelta = -gyro.x;
             yDelta = -gyro.z;
             zDelta = -gyro.y;
             break;
         case UIDeviceOrientationLandscapeLeft:
+            accelX = -acc.y;
+            accelY = acc.z;
+            accelZ = -acc.x;
             xDelta = -gyro.y;
             yDelta = -gyro.z;
             zDelta = gyro.x;
@@ -374,6 +388,15 @@ typedef NS_ENUM(NSUInteger, MessageType)
             return;
     }
     
+    // accelerometer
+    *(uint32_t *)(outPtr) = *(uint32_t *)&accelX;
+    outPtr += 4;
+    *(uint32_t *)(outPtr) = *(uint32_t *)&accelY;
+    outPtr += 4;
+    *(uint32_t *)(outPtr) = *(uint32_t *)&accelZ;
+    outPtr += 4;
+    
+    // gyro
     xDelta = radtodeg(xDelta) * gyroSensitivity;
     yDelta = radtodeg(yDelta) * gyroSensitivity;
     zDelta = radtodeg(zDelta) * gyroSensitivity;
