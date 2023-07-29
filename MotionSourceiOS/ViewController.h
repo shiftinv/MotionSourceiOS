@@ -5,6 +5,7 @@
 @interface ViewController : UIViewController <GCDAsyncUdpSocketDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *portTextField;
+@property (weak, nonatomic) IBOutlet UIView *connectionIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *ipAddressLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startstopServerButton;
 @property (weak, nonatomic) IBOutlet UISlider *updateIntervalSlider;
@@ -13,6 +14,7 @@
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *orientationButtons;
 
+- (void)updateLastAddress:(NSData *)address;
 - (void)setUpdatesPerSec:(int)ups;
 - (void)startGyroUpdates;
 - (void)stopGyroUpdates;

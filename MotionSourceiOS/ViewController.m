@@ -61,12 +61,15 @@ typedef NS_ENUM(NSUInteger, MessageType)
     
     // ** UI **
     
+    _connectionIndicator.layer.cornerRadius = _connectionIndicator.bounds.size.width / 2;
+    
     [_ipAddressLabel setText:[self getIPAddress]];
     [_portTextField setText:[NSString stringWithFormat:@"%d", port]];
     [_portTextField setDelegate:self];
     [_startstopServerButton setTitleColor:[UIColor systemGreenColor] forState:UIControlStateNormal];
     [_startstopServerButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     [_startstopServerButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    
     for(UIButton *button in _orientationButtons) {
         if(button.tag == 0) { // only runs for the first (portrait) button
             [self changeOrientation:button];
@@ -83,6 +86,12 @@ typedef NS_ENUM(NSUInteger, MessageType)
 }
 
 
+- (void)updateLastAddress:(NSData *)address {
+    lastAddress = address;
+    _connectionIndicator.backgroundColor = address ? [UIColor systemGreenColor] : [UIColor systemRedColor];
+}
+
+
 - (void)setUpdatesPerSec:(int)ups {
     [_updateIntervalSlider setValue:ups];
     [_updateIntervalTextField setText:[NSString stringWithFormat:@"%d", ups]];
@@ -93,6 +102,8 @@ typedef NS_ENUM(NSUInteger, MessageType)
 
 
 - (void)startGyroUpdates {
+    [self stopGyroUpdates];
+    
     if(!motionManager) {
         motionManager = [[CMMotionManager alloc] init];
         [motionManager setDeviceMotionUpdateInterval:(1.0 / updatesPerSec)];
@@ -102,7 +113,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     [motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
         if(CACurrentMediaTime() > lastReceiveTime + (CLIENT_TIMEOUT_MS / 1000)) {
             NSLog(@"Client disconnected.");
-            lastAddress = nil;
+            [weakSelf updateLastAddress:nil];
             [weakSelf stopGyroUpdates];
             return;
         }
@@ -156,7 +167,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     
     NSLog(@"Stopping server..");
     [socket close];
-    lastAddress = nil;
+    [self updateLastAddress:nil];
     [self stopGyroUpdates];
     [_startstopServerButton setEnabled:false];
     // button waits for delegate method udpSocketDidClose:withError: to be called
@@ -399,10 +410,8 @@ typedef NS_ENUM(NSUInteger, MessageType)
 
 
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext {
-    bool newClient = false;
-    if(!lastAddress)
-        newClient = true;
-    lastAddress = address;
+    bool newClient = !lastAddress;
+    [self updateLastAddress:address];
     lastReceiveTime = CACurrentMediaTime();
     if(newClient) {
         [self startGyroUpdates];

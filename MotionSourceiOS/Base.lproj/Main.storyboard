@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTT-eu-5Nk">
-                                <rect key="frame" x="199" y="41.5" width="140" height="39.5"/>
+                                <rect key="frame" x="209" y="41.5" width="138" height="39.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Start Server">
@@ -63,6 +63,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xF-88-5bG" userLabel="Connection Indicator">
+                                <rect key="frame" x="345" y="94" width="10" height="10"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="HeD-WD-466"/>
+                                    <constraint firstAttribute="height" constant="10" id="Xxx-52-yyQ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCx-3j-nId" userLabel="Separator View">
+                                <rect key="frame" x="20" y="128" width="335" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="hcX-M8-uzg"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Interval (updates/s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHt-Kg-TMH">
                                 <rect key="frame" x="20" y="149" width="187.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -167,19 +182,12 @@
                                     <constraint firstItem="9Xl-kq-Kbv" firstAttribute="width" secondItem="HZ4-Tp-ehh" secondAttribute="width" multiplier="0.22" id="otW-RP-E0G"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="M2C-LG-D8B">
-                                <rect key="frame" x="117.5" y="90" width="201.5" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="[IP]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="M2C-LG-D8B">
+                                <rect key="frame" x="117.5" y="90" width="215.5" height="18"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCx-3j-nId" userLabel="Separator View">
-                                <rect key="frame" x="20" y="128" width="335" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="hcX-M8-uzg"/>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[version]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyc-xH-ynt">
                                 <rect key="frame" x="20" y="646" width="335" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -207,10 +215,11 @@
                             <constraint firstItem="Z2g-Ef-Yjo" firstAttribute="leading" secondItem="VpB-Sx-BaG" secondAttribute="trailing" constant="8" id="2YK-Hr-cs7"/>
                             <constraint firstItem="HZ4-Tp-ehh" firstAttribute="top" secondItem="pGa-Lt-SA6" secondAttribute="bottom" constant="20" id="4eP-mN-WB5"/>
                             <constraint firstItem="bTT-eu-5Nk" firstAttribute="centerY" secondItem="Z2g-Ef-Yjo" secondAttribute="centerY" id="7ML-Fm-QEh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="M2C-LG-D8B" secondAttribute="trailing" constant="40" id="86C-W5-Tta"/>
+                            <constraint firstItem="8xF-88-5bG" firstAttribute="leadingMargin" secondItem="M2C-LG-D8B" secondAttribute="trailing" constant="20" id="86C-W5-Tta"/>
                             <constraint firstItem="Gua-QS-o39" firstAttribute="centerY" secondItem="Z2g-Ef-Yjo" secondAttribute="centerY" id="8rZ-gD-s51"/>
                             <constraint firstItem="aQK-Gn-3Ct" firstAttribute="leading" secondItem="iv0-Hc-Hlc" secondAttribute="trailing" id="9Ms-yZ-96p"/>
-                            <constraint firstItem="bTT-eu-5Nk" firstAttribute="leading" secondItem="Gua-QS-o39" secondAttribute="trailing" constant="30" id="BVx-VM-DJd"/>
+                            <constraint firstItem="bTT-eu-5Nk" firstAttribute="leading" secondItem="Gua-QS-o39" secondAttribute="trailing" constant="40" id="BVx-VM-DJd"/>
+                            <constraint firstItem="8xF-88-5bG" firstAttribute="centerY" secondItem="wLL-pu-yoO" secondAttribute="centerY" id="FOv-WE-cq1"/>
                             <constraint firstItem="MnF-Xd-Fog" firstAttribute="top" secondItem="5Qk-2k-GnI" secondAttribute="bottom" constant="12" id="GGB-lu-Crp"/>
                             <constraint firstItem="HZ4-Tp-ehh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="12" id="KAq-ju-JMm"/>
                             <constraint firstItem="DCx-3j-nId" firstAttribute="top" secondItem="wLL-pu-yoO" secondAttribute="bottom" constant="20" id="Koh-mM-FW0"/>
@@ -227,6 +236,7 @@
                             <constraint firstItem="uyc-xH-ynt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="YcS-Ny-9vr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DCx-3j-nId" secondAttribute="trailing" constant="4" id="ZqS-3P-iBS"/>
                             <constraint firstItem="EJt-F1-Yz2" firstAttribute="centerY" secondItem="iv0-Hc-Hlc" secondAttribute="centerY" id="azX-Vl-jO0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8xF-88-5bG" secondAttribute="trailing" constant="4" id="cE4-bf-XmI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EJt-F1-Yz2" secondAttribute="trailing" constant="4" id="d5T-T9-6vp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uyc-xH-ynt" secondAttribute="bottom" constant="4" id="dGa-sD-qRs"/>
                             <constraint firstItem="iv0-Hc-Hlc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="dsP-RD-Lhy"/>
@@ -246,11 +256,12 @@
                             <constraint firstItem="5Qk-2k-GnI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="pMR-HN-WyZ"/>
                             <constraint firstItem="75A-ch-Pmh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="qRu-vX-Kz1"/>
                             <constraint firstItem="pGa-Lt-SA6" firstAttribute="top" secondItem="MQK-ap-IwB" secondAttribute="bottom" constant="20" id="v7G-hm-GvL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bTT-eu-5Nk" secondAttribute="trailing" constant="20" id="v8T-9K-7hP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bTT-eu-5Nk" secondAttribute="trailing" constant="12" id="v8T-9K-7hP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HZ4-Tp-ehh" secondAttribute="trailing" constant="12" id="zYa-ta-zBi"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="connectionIndicator" destination="8xF-88-5bG" id="x1u-d1-cXP"/>
                         <outlet property="ipAddressLabel" destination="M2C-LG-D8B" id="dtQ-gv-lIY"/>
                         <outlet property="portTextField" destination="Z2g-Ef-Yjo" id="P8a-hr-80R"/>
                         <outlet property="startstopServerButton" destination="bTT-eu-5Nk" id="0b2-zB-Zh8"/>
@@ -281,6 +292,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
