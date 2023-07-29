@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTT-eu-5Nk">
-                                <rect key="frame" x="189" y="41.5" width="150" height="39.5"/>
+                                <rect key="frame" x="199" y="41.5" width="140" height="39.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Start Server">
@@ -221,7 +221,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="M2C-LG-D8B" secondAttribute="trailing" constant="40" id="86C-W5-Tta"/>
                             <constraint firstItem="Gua-QS-o39" firstAttribute="centerY" secondItem="Z2g-Ef-Yjo" secondAttribute="centerY" id="8rZ-gD-s51"/>
                             <constraint firstItem="02o-T7-oSj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="BIU-oU-aoo"/>
-                            <constraint firstItem="bTT-eu-5Nk" firstAttribute="leading" secondItem="Gua-QS-o39" secondAttribute="trailing" constant="20" id="BVx-VM-DJd"/>
+                            <constraint firstItem="bTT-eu-5Nk" firstAttribute="leading" secondItem="Gua-QS-o39" secondAttribute="trailing" constant="30" id="BVx-VM-DJd"/>
                             <constraint firstItem="MnF-Xd-Fog" firstAttribute="top" secondItem="5Qk-2k-GnI" secondAttribute="bottom" constant="12" id="GGB-lu-Crp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="R4V-x6-jJN" secondAttribute="trailing" constant="4" id="Hzg-ic-pOl"/>
                             <constraint firstItem="HZ4-Tp-ehh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="12" id="KAq-ju-JMm"/>
