@@ -68,7 +68,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     [_startstopServerButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     [_startstopServerButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     for(UIButton *button in _orientationButtons) {
-        if(button.tag == 1) { // only runs for the first (portrait) button
+        if(button.tag == 0) { // only runs for the first (portrait) button
             [self changeOrientation:button];
         }
         [button setBackgroundColor:[UIColor colorWithWhite:0.85f alpha:1.0f]];
