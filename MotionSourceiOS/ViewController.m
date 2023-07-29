@@ -73,7 +73,6 @@ typedef NS_ENUM(NSUInteger, MessageType)
         if(button.tag == 0) { // only runs for the first (portrait) button
             [self changeOrientation:button];
         }
-        [button setBackgroundColor:[UIColor colorWithWhite:0.85f alpha:1.0f]];
         [button.layer setCornerRadius:12.0f];
         [button.layer setBorderColor:[[UIColor systemBlueColor] CGColor]];
     }

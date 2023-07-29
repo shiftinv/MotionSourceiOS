@@ -158,6 +158,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7q-EJ-vvk">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="f7q-EJ-vvk" secondAttribute="height" multiplier="1:1" id="sfk-a8-Eeu"/>
                                         </constraints>
@@ -168,6 +169,7 @@
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xl-kq-Kbv">
                                         <rect key="frame" x="83" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9Xl-kq-Kbv" secondAttribute="height" multiplier="1:1" id="V2p-n6-RzA"/>
                                         </constraints>
@@ -178,6 +180,7 @@
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aei-QH-TBs">
                                         <rect key="frame" x="166" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Aei-QH-TBs" secondAttribute="height" multiplier="1:1" id="fHZ-Et-VuL"/>
                                         </constraints>
@@ -188,6 +191,7 @@
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhM-RW-ovu">
                                         <rect key="frame" x="249" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="XhM-RW-ovu" secondAttribute="height" multiplier="1:1" id="Nkx-h5-e5V"/>
                                         </constraints>
