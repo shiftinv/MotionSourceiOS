@@ -241,6 +241,13 @@ typedef NS_ENUM(NSUInteger, MessageType)
 }
 
 
+- (void)displayInfoSheetWithTitle:(NSString *)title message:(NSString *)message {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alert animated:true completion:nil];
+}
+
+
 - (void)displayErrorWithMessage:(NSString *)message {
     UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Error" message:message preferredStyle:UIAlertControllerStyleAlert];
     [controller addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
@@ -254,9 +261,12 @@ typedef NS_ENUM(NSUInteger, MessageType)
 
 
 - (IBAction)accelerometerInfoPressed:(UIButton *)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Accelerometer Usage" message:@"This generally helps counteract gyroscope drift. Some applications require accelerometer data to be provided." preferredStyle:UIAlertControllerStyleActionSheet];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
-    [self presentViewController:alert animated:true completion:nil];
+    [self displayInfoSheetWithTitle:@"Accelerometer Usage" message:@"This generally helps counteract gyroscope drift. Some applications require accelerometer data to be provided."];
+}
+
+
+- (IBAction)aboutPressed:(id)sender {
+    [self displayInfoSheetWithTitle:@"About" message:[NSString stringWithFormat:@"MotionSourceiOS %@\n\nSource code: https://github.com/shiftinv/MotionSourceiOS\n\nIcon courtesy of https://iconpacks.net", _versionLabel.text]];
 }
 
 

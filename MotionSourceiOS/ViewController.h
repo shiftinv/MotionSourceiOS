@@ -27,6 +27,8 @@
 - (IBAction)changeOrientation:(UIButton *)sender;
 - (IBAction)enableAccelerometerSwitch:(UISwitch *)sender;
 - (IBAction)accelerometerInfoPressed:(UIButton *)sender;
+- (IBAction)aboutPressed:(id)sender;
+- (void)displayInfoSheetWithTitle:(NSString *)title message:(NSString *)message;
 - (void)displayErrorWithMessage:(NSString *)message;
 - (void)handleMotionUpdate:(CMDeviceMotion *)motionData withError:(NSError *)error;
 - (NSString *)getIPAddress;
