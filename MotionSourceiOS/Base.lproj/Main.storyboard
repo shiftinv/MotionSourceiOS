@@ -211,7 +211,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[version]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyc-xH-ynt">
                                 <rect key="frame" x="242.5" y="640" width="57.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jM6-G8-9yf">
@@ -238,7 +238,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="jM6-G8-9yf" secondAttribute="trailing" constant="4" id="C6w-wc-EdY"/>
                             <constraint firstItem="8xF-88-5bG" firstAttribute="centerY" secondItem="wLL-pu-yoO" secondAttribute="centerY" id="FOv-WE-cq1"/>
                             <constraint firstItem="MnF-Xd-Fog" firstAttribute="top" secondItem="5Qk-2k-GnI" secondAttribute="bottom" constant="12" id="GGB-lu-Crp"/>
-                            <constraint firstItem="uyc-xH-ynt" firstAttribute="centerY" secondItem="jM6-G8-9yf" secondAttribute="centerY" id="INq-30-x0y"/>
+                            <constraint firstItem="uyc-xH-ynt" firstAttribute="baseline" secondItem="jM6-G8-9yf" secondAttribute="baseline" id="INq-30-x0y"/>
                             <constraint firstItem="HZ4-Tp-ehh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="12" id="KAq-ju-JMm"/>
                             <constraint firstItem="DCx-3j-nId" firstAttribute="top" secondItem="wLL-pu-yoO" secondAttribute="bottom" constant="20" id="Koh-mM-FW0"/>
                             <constraint firstItem="wLL-pu-yoO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="Ocw-En-S2L"/>
@@ -304,8 +304,8 @@
         <namedColor name="BackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
