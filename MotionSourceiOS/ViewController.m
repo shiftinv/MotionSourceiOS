@@ -287,7 +287,7 @@ typedef NS_ENUM(NSUInteger, MessageType)
     if(lastAddress == nil || error != nil)
         return;
     
-    uint8_t outputData[84];
+    uint8_t outputData[84] = {0};
     uint8_t *outPtr = outputData;
     *(uint32_t *)(outPtr) = MessageTypeDSUSPadDataRsp;
     outPtr += 4;
