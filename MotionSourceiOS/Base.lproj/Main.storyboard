@@ -162,7 +162,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="f7q-EJ-vvk" secondAttribute="height" multiplier="1:1" id="sfk-a8-Eeu"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="iphone-icon_0"/>
+                                        <state key="normal" image="iphone-icon_0"/>
                                         <connections>
                                             <action selector="changeOrientation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bj0-fU-nTL"/>
                                         </connections>
@@ -173,7 +173,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9Xl-kq-Kbv" secondAttribute="height" multiplier="1:1" id="V2p-n6-RzA"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="iphone-icon_90"/>
+                                        <state key="normal" image="iphone-icon_90"/>
                                         <connections>
                                             <action selector="changeOrientation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ghe-RH-pJb"/>
                                         </connections>
@@ -184,7 +184,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Aei-QH-TBs" secondAttribute="height" multiplier="1:1" id="fHZ-Et-VuL"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="iphone-icon_180"/>
+                                        <state key="normal" image="iphone-icon_180"/>
                                         <connections>
                                             <action selector="changeOrientation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dqD-Pi-o9G"/>
                                         </connections>
@@ -195,7 +195,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="XhM-RW-ovu" secondAttribute="height" multiplier="1:1" id="Nkx-h5-e5V"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="iphone-icon_270"/>
+                                        <state key="normal" image="iphone-icon_270"/>
                                         <connections>
                                             <action selector="changeOrientation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jcl-uq-rsR"/>
                                         </connections>
