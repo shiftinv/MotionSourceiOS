@@ -26,6 +26,8 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>This is required to send gyroscope data back to the client. Note that you need to start the server again after enabling this.</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>arm64</string>
