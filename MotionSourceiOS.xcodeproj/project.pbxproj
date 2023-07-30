@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B2D7FB857222B587BA27637D /* libPods-MotionSourceiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1459D34D323A03DC9BA04D /* libPods-MotionSourceiOS.a */; };
+		3F1E5B790B6F95ECEBBC8E64 /* libPods-MotionSourceiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E95BFAC9D9586D21AE53913 /* libPods-MotionSourceiOS.a */; };
 		F491FBA21FA4F0FC005B57A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F491FBA11FA4F0FC005B57A8 /* main.m */; };
 		F491FBA51FA4F0FC005B57A8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F491FBA41FA4F0FC005B57A8 /* AppDelegate.m */; };
 		F491FBA81FA4F0FC005B57A8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F491FBA71FA4F0FC005B57A8 /* ViewController.m */; };
@@ -18,9 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B18A1B364BB596E79521817 /* Pods-MotionSourceiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotionSourceiOS.release.xcconfig"; path = "Target Support Files/Pods-MotionSourceiOS/Pods-MotionSourceiOS.release.xcconfig"; sourceTree = "<group>"; };
-		49074FEB198A20F7EC29CF12 /* Pods-MotionSourceiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotionSourceiOS.debug.xcconfig"; path = "Target Support Files/Pods-MotionSourceiOS/Pods-MotionSourceiOS.debug.xcconfig"; sourceTree = "<group>"; };
-		6E1459D34D323A03DC9BA04D /* libPods-MotionSourceiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MotionSourceiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E95BFAC9D9586D21AE53913 /* libPods-MotionSourceiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MotionSourceiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA8D13C15AC560662A0ED974 /* Pods-MotionSourceiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotionSourceiOS.debug.xcconfig"; path = "Target Support Files/Pods-MotionSourceiOS/Pods-MotionSourceiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		BBBAEFC74553DB7B763F5DCD /* Pods-MotionSourceiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotionSourceiOS.release.xcconfig"; path = "Target Support Files/Pods-MotionSourceiOS/Pods-MotionSourceiOS.release.xcconfig"; sourceTree = "<group>"; };
 		F491FB9D1FA4F0FC005B57A8 /* MotionSourceiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotionSourceiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F491FBA11FA4F0FC005B57A8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F491FBA31FA4F0FC005B57A8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -40,17 +40,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2D7FB857222B587BA27637D /* libPods-MotionSourceiOS.a in Frameworks */,
+				3F1E5B790B6F95ECEBBC8E64 /* libPods-MotionSourceiOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		820F2EB7E2F262AB5B43D0C6 /* Frameworks */ = {
+		1DA7E21ACE66DF9A0B01F856 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6E1459D34D323A03DC9BA04D /* libPods-MotionSourceiOS.a */,
+				3E95BFAC9D9586D21AE53913 /* libPods-MotionSourceiOS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -58,8 +58,8 @@
 		F2A54CE364DDE9091B5A663D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				49074FEB198A20F7EC29CF12 /* Pods-MotionSourceiOS.debug.xcconfig */,
-				0B18A1B364BB596E79521817 /* Pods-MotionSourceiOS.release.xcconfig */,
+				AA8D13C15AC560662A0ED974 /* Pods-MotionSourceiOS.debug.xcconfig */,
+				BBBAEFC74553DB7B763F5DCD /* Pods-MotionSourceiOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -69,8 +69,8 @@
 			children = (
 				F491FB9F1FA4F0FC005B57A8 /* MotionSourceiOS */,
 				F491FB9E1FA4F0FC005B57A8 /* Products */,
-				820F2EB7E2F262AB5B43D0C6 /* Frameworks */,
 				F2A54CE364DDE9091B5A663D /* Pods */,
+				1DA7E21ACE66DF9A0B01F856 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,7 +115,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F491FBB41FA4F0FC005B57A8 /* Build configuration list for PBXNativeTarget "MotionSourceiOS" */;
 			buildPhases = (
-				1A64B82E97B65A7430D14ECB /* [CP] Check Pods Manifest.lock */,
+				3A5F8C591060267D2225A6CF /* [CP] Check Pods Manifest.lock */,
 				F491FB991FA4F0FC005B57A8 /* Sources */,
 				F491FB9A1FA4F0FC005B57A8 /* Frameworks */,
 				F491FB9B1FA4F0FC005B57A8 /* Resources */,
@@ -179,7 +179,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1A64B82E97B65A7430D14ECB /* [CP] Check Pods Manifest.lock */ = {
+		3A5F8C591060267D2225A6CF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -357,7 +357,7 @@
 		};
 		F491FBB51FA4F0FC005B57A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49074FEB198A20F7EC29CF12 /* Pods-MotionSourceiOS.debug.xcconfig */;
+			baseConfigurationReference = AA8D13C15AC560662A0ED974 /* Pods-MotionSourceiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -386,7 +386,7 @@
 		};
 		F491FBB61FA4F0FC005B57A8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B18A1B364BB596E79521817 /* Pods-MotionSourceiOS.release.xcconfig */;
+			baseConfigurationReference = BBBAEFC74553DB7B763F5DCD /* Pods-MotionSourceiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
